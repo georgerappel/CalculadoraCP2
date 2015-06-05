@@ -1,0 +1,102 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgall"
+    android:fillViewport="true"
+    tools:context=".EditEntry" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/ScrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/atualizar"
+            android:layout_alignParentTop="true" >
+
+            <TableLayout
+                android:id="@+id/maintable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/table">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="Disciplina"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="1° Tri"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="2° Tri"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="Est. 3°"
+                        android:textColor="#ff888888"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="3° Tri"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="M.A."
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="Est.PFV"
+                        android:textColor="#ff888888"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="7dip"
+                        android:text="PFV"
+                        android:textSize="17sp" />
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/atualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:text="Atualizar lista" />
+    </RelativeLayout>
+
+</HorizontalScrollView><!-- From: file:/C:/Users/George/Dropbox/CalculadoraCP2/app/src/main/res/layout-land/boletim_layout.xml -->

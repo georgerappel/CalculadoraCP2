@@ -1,0 +1,213 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgall"
+    android:scrollbars="none"
+    tools:context="com.testemedia.mediacp2.MainActivity"
+    tools:ignore="MergeRootFrame">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-3567961859053683/1325905450"></com.google.android.gms.ads.AdView>
+
+        <TextView
+            android:id="@+id/topo3tri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:textSize="25sp"
+            android:text="@string/botaoMedias"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvtri1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tri1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/nota1Tri"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:ems="10"
+                android:inputType="numberDecimal">
+
+                <requestFocus />
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvtri2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tri2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/nota2Tri"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tri3"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/nota3Tri"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/terceiro"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="3° Trimestre" />
+
+            <Button
+                android:id="@+id/ma"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                android:text="M.A / PFV" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="3° Tri:"
+                android:id="@+id/tv_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Média Anual"
+                android:id="@+id/tv_2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="P.F.V."
+                android:id="@+id/tv_3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/resultado3Tri"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/resultadoMA"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/resultadoPFV"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/situacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="25dp"
+            android:text="@string/situacao"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+</ScrollView><!-- From: file:/C:/Users/George/Dropbox/CalculadoraCP2/app/src/main/res/layout/medias_layout.xml -->

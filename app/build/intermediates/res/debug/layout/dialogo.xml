@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="310dp"
+    android:layout_height="190dp"
+    android:layout_gravity="center"
+    android:background="@drawable/dialog"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Portugues"
+        android:textColor="#FF000000"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Alterar nota do 1° trimestre:"
+        android:textColor="#FF000000"
+        android:textSize="19sp" />
+
+    <EditText
+        android:id="@+id/notaedit"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/salvar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:text="Salvar"
+        android:textColor="#FF000000"
+        android:typeface="monospace" />
+
+</LinearLayout><!-- From: file:/C:/Users/George/Dropbox/CalculadoraCP2/app/src/main/res/layout/dialogo.xml -->

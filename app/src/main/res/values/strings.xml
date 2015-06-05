@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Calculadora CP2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="informacoes">Informações</string>
+    <string name="texto1">Bem-vindo à Calculadora!</string>
+    <string name="botao3tri">Nota mín. do 3° Trimestre</string>
+    <string name="botaoPFV">Nota mínima para PFV</string>
+    <string name="botaoMA">Média Anual</string>
+    <string name="botaoMedias">Calcular Médias</string>
+    <string name="tudoOuNada">Ao Pedro II, tudo ou nada?!</string>
+    <string name="tri1">Nota do 1° Tri.:</string>
+    <string name="tri2">Nota do 2° Tri.:</string>
+    <string name="tri3">Nota do 3° Tri.:</string>
+    <string name="timetable">Timetable</string>
+    <string name="calcular">Calcular!</string>
+    <string name="nota">Nota:</string>
+    <string name="info">Informações</string>
+    <string name="facer">Ir Para: Facebook George Rappel</string>
+    <string name="faceb">Ir Para: Facebook Lucas Braga</string>
+    <string name="desenvolvedores">Desenvolvedores:</string>
+    <string name="contato">Contato, Sugestões e Erros:</string>
+    <string name="email">contato.rbapps@gmail.com</string>
+    <string name="texto">O aplicativo foi desenvolvido por um dois ex-alunos do Colégio Pedro II, ambos cursando técnico de
+        informática no CEFET/RJ, e tem o objetivo de auxiliar os alunos nos cálculos de médias e notas.</string>
+    <string name="contato1">Contato, erros ou sugestões:</string>
+    <string name="textoResultado"></string>
+    <string name="textoResultado1"></string>
+    <string name="situacao"></string>
+    <string name="calendario">Calendário Escolar</string>
+    <string name="contato_">Contato, erros ou sugestões:</string>
+     <string name="cadastrar">Cadastrar Disciplina</string>
+    <string name="boletim">Boletim</string>
+    <string name="proeja">PROEJA</string>
+    <string name="materia">Nome da Disciplina:</string>
+    <string name="finalizar">Salvar</string>
+    <string name="inst">Instruções</string>
+    <string name="inst_1">O boletim apresenta várias colunas. A coluna "Est. 3°" significa Estimativa do 3° Trimestre, ou seja, a nota necessária para ser aprovado direto.</string>
+    <string name="inst_cad">Ao preencher os campos do cadastro de matérias, são obrigatórias APENAS o nome e a nota do 1° trimestre. As notas do 2° e 3° Trimestres podem ser deixadas em branco ou preenchidas com 0.</string>
+    <string name="inst_edit">Para editar ou remover uma matéria basta dar um clique na nota enquando visualiza o boletim ou abrir a lista de edição/remoção de matérias, dar um toque longo sobre o nome da matéria.
+        						No menu, escolha se deseja excluir ou editar a matéria.</string>
+	<string name="editarMat">Editar Disciplina</string>
+	<string name="PFV">Nota PFV:</string>
+	<string name="footer">Toque e segure no nome da matéria que deseja editar ou remover.</string>
+	
+	
+</resources>
