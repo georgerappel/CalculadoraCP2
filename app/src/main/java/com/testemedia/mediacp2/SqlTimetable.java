@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.ArrayAdapter;
+
+import java.sql.Time;
 
 /**
  * Created by Lucas Braga & George Rappel on 27/05/2015.
@@ -97,6 +100,56 @@ public class SqlTimetable extends SQLiteOpenHelper {
         }
     }
 
+    public void removeHorario(Timetable tupla) {
 
+        // 1. get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        // Checa se o nome nao e nulo nem esta vazio.
+        if (tupla.getHorario() != null && tupla.getHorario() != "")
+            db.delete(TABLE_GRADE_HORARIA, KEY_HORARIO + " = ?", new String[] { tupla.getHorario() });
+
+        // Fechando a DB
+        db.close();
+    }
+
+    public Timetable[] listarHorarios(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Timetable[] array;
+        Timetable tupla = new Timetable();
+        int i = 0;
+
+        String selectQuery = "SELECT * FROM " + TABLE_GRADE_HORARIA;
+        Cursor cursor1 = db.rawQuery(selectQuery, null);
+        array = new Timetable[cursor1.getCount()]; //Conta as linhas e cria o array com o tamanho adequado;
+
+        // Move o cursor ao primeiro nome, caso nao esteja vazia.
+        if (cursor1.moveToFirst()) {
+            do {
+                // Se o nome estiver vazio, preenche com espaco.
+                if (cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) == null || cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) == "") {
+                    //apenas pular a linha
+                } else {
+                    tupla.setHorario(cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)));
+                    tupla.setDomingo(cursor1.getString(cursor1.getColumnIndex(KEY_DOMINGO)));
+                    tupla.setSegunda(cursor1.getString(cursor1.getColumnIndex(KEY_SEGUNDA)));
+                    tupla.setTerca(cursor1.getString(cursor1.getColumnIndex(KEY_TERCA)));
+                    tupla.setQuarta(cursor1.getString(cursor1.getColumnIndex(KEY_QUARTA)));
+                    tupla.setQuinta(cursor1.getString(cursor1.getColumnIndex(KEY_QUINTA)));
+                    tupla.setSexta(cursor1.getString(cursor1.getColumnIndex(KEY_SEXTA)));
+                    tupla.setSabado(cursor1.getString(cursor1.getColumnIndex(KEY_SABADO)));
+
+                    // Coloca a tupla no array a ser retornado
+                    array[i] = new Timetable(); // ---- Precaução
+                    array[i] = tupla;
+                    tupla = new Timetable(); // ---- Limpa a tupla para o loop
+                    i++;
+                }
+            } while (cursor1.moveToNext()); // Move cursor para a proxima tupla
+        }
+        cursor1.close();
+        db.close();
+        return array;
+    }
 }
