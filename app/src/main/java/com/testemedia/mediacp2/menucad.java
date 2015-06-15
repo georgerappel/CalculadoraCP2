@@ -65,15 +65,12 @@ public class menucad extends Activity implements View.OnClickListener{
 			}
 			
 	}
-
 	
 	@Override
     public void onStop() {
         super.onStop();
-        getWindow().setWindowAnimations(android.R.anim.slide_out_right);
         EasyTracker.getInstance(this).activityStop(this);
     }
-
 }
 
 
