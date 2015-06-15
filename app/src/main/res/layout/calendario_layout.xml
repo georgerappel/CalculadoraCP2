@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bgall" >
+    android:background="@drawable/bgall"
+    android:orientation="vertical">
 
     <ImageButton
         android:id="@+id/calendariopadrao"
@@ -13,11 +14,11 @@
         android:src="@drawable/calendariobotaogeral" />
 
     <ImageButton
-        android:id="@+id/calendarioTerceirao"
+        android:id="@+id/calendario3"
         android:layout_width="fill_parent"
         android:layout_weight="1"
-        android:layout_height="fill_parent"
         android:background="#45FFFA"
+        android:layout_height="fill_parent"
         android:contentDescription="@string/calendario"
         android:src="@drawable/calendariobotaogeral2" />
 
