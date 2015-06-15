@@ -73,11 +73,6 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/C:/Users/George/Dropbox/CalculadoraCP2/app/src/main/res/values/colors.xml -->
-    <eat-comment/>
-    <color name="red">#f00</color>
-    <!-- From: file:/C:/Users/George/Dropbox/CalculadoraCP2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
-    <eat-comment/>
     <color name="ripple_material_dark">#40ffffff</color>
     <color name="ripple_material_light">#40000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>

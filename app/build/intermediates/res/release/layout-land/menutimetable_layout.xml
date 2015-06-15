@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgall"
+    tools:context="com.testemedia.mediacp2.MenuTimetable"
+    tools:ignore="MergeRootFrame">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.testemedia.mediacp2.MainActivity"
+        tools:ignore="MergeRootFrame">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true">
+            <TableLayout
+                android:id="@+id/timetable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/table">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="Disciplina"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="1° Tri"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="2° Tri"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="Est. 3°"
+                        android:textColor="#ff888888"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="3° Tri"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="M.A."
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="68dp"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="Est.PFV"
+                        android:textColor="#ff888888"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:gravity="center"
+                        android:padding="7dip"
+                        android:text="PFV"
+                        android:textSize="17sp" />
+                </TableRow>
+            </TableLayout>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</RelativeLayout><!-- From: file:/C:/Users/George/Dropbox/CalculadoraCP2/app/src/main/res/layout-land/menutimetable_layout.xml -->
