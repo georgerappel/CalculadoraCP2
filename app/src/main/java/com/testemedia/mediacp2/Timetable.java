@@ -26,14 +26,14 @@ public class Timetable {
     public String getSexta(){ return sexta; }
     public String getSabado(){ return sabado; }
 
-    public void setHorario(String text){ this.horario = text; }
-    public void setDomingo(String text){ this.domingo = text; }
-    public void setSegunda(String text){ this.segunda = text; }
-    public void setTerca(String text){ this.terca = text; }
-    public void setQuarta(String text){ this.quarta = text; }
-    public void setQuinta(String text){ this.quinta = text; }
-    public void setSexta(String text){ this.sexta = text; }
-    public void setSabado(String text){ this.sabado = text; }
+    public void setHorario(String arg){ this.horario = arg; }
+    public void setDomingo(String arg){ this.domingo = arg; }
+    public void setSegunda(String arg){ this.segunda = arg; }
+    public void setTerca(String arg){ this.terca = arg; }
+    public void setQuarta(String arg){ this.quarta = arg; }
+    public void setQuinta(String arg){ this.quinta = arg; }
+    public void setSexta(String arg){ this.sexta = arg; }
+    public void setSabado(String arg){ this.sabado = arg; }
 
     public void setDiasVazios(){
         this.domingo = "";
@@ -44,6 +44,5 @@ public class Timetable {
         this.sexta = "";
         this.sabado = "";
     }
-
 
 }
