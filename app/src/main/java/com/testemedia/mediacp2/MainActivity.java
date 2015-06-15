@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private void onShareAction(){
         // Create the share Intent
         String playStoreLink = "https://play.google.com/store/apps/details?id=" + getPackageName();
-        String yourShareText = " - Calcule e salve suas médias e o boletim com Calculadora CP2! " + playStoreLink;
+        String yourShareText = " - Calcule e salve suas médias com Calculadora CP2! " + playStoreLink;
         Intent shareIntent = ShareCompat.IntentBuilder.from(this).setType("text/plain").setText(yourShareText).getIntent();
         // Set the share Intent
         if (mShareActionProvider != null) {
@@ -119,11 +119,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
              this.startActivity(Proeja);
              break;
         case R.id.timetable:
-            //this.startActivity(Time);
-            Context context = getApplicationContext();
-            CharSequence text ="Disponível em breve!";
-            int duration = Toast.LENGTH_LONG;
-            Toast.makeText(context, text, duration).show();
+            this.startActivity(Time);
             break;
         case R.id.botaoCalendario:
             this.startActivity(Calendario2);

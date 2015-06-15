@@ -142,7 +142,8 @@ public class SqlCadastro extends SQLiteOpenHelper {
 			} while (cursor1.moveToNext()); // Move cursor para o proximo nome.
 		}
 
-		// Preenche os espacos vazios da lista.
+		// ---- Preenche os espacos vazios da lista.
+		// ---- Gambiarra
 		for (i = 0; i < 50; i++)
 			if (listaMaterias[i] == null)
 				listaMaterias[i] = "";

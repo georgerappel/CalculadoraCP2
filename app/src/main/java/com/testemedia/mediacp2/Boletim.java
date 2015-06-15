@@ -1,5 +1,6 @@
 package com.testemedia.mediacp2;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +30,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import java.text.DecimalFormat;
 
-public class Boletim extends MainActivity implements View.OnClickListener {
+public class Boletim extends Activity implements View.OnClickListener {
     private InterstitialAd interstitial;
 
     SqlCadastro mSql = new SqlCadastro(this);
@@ -75,10 +76,7 @@ public class Boletim extends MainActivity implements View.OnClickListener {
         SQLiteStatement statement = db
                 .compileStatement("SELECT MAX(ID) FROM Materias"); // Statement
         float count = statement.simpleQueryForLong(); // Retorna o resultado da
-        if (count == 0) { // Caso a lista n�o tenha cadastros
-
-        } else { // Caso tenha algum cadastro
-
+        if (count > 0) {
             for (int current = 0; current < count; current++) {
 
                 // Declarando uma linha da tabela e os Views dos dados.
@@ -295,9 +293,12 @@ public class Boletim extends MainActivity implements View.OnClickListener {
 		}*/
     }
 
+    public void onClick(View v){
+    }
+
     public void carregarAnuncio() {
         Editor editControle;
-        SharedPreferences prefs, controle;
+        SharedPreferences controle;
 
         controle = this.getSharedPreferences("anuncios", Context.MODE_PRIVATE);
         editControle = controle.edit();
