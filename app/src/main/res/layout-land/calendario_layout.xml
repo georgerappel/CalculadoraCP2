@@ -1,23 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gesture-image="http://schemas.polites.com/android"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/bgall" >
 
     <ImageButton
         android:id="@+id/calendariopadrao"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_weight="1"
-        android:layout_height="fill_parent"
-        android:background="#45FFFA"
+        android:layout_height="match_parent"
         android:contentDescription="@string/calendario"
         android:src="@drawable/calendariobotaogeral" />
 
     <ImageButton
-        android:id="@+id/calendarioTerceirao"
-        android:layout_width="fill_parent"
+        android:id="@+id/calendario3"
+        android:layout_width="wrap_content"
         android:layout_weight="1"
-        android:layout_height="fill_parent"
-        android:background="#45FFFA"
+        android:layout_height="match_parent"
         android:contentDescription="@string/calendario"
         android:src="@drawable/calendariobotaogeral2" />
 

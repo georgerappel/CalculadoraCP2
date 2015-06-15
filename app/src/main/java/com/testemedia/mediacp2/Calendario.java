@@ -10,7 +10,7 @@ import com.matabii.dev.scaleimageview.ScaleImageView;
 
 public class Calendario extends Activity implements View.OnClickListener{
 	
-	ImageButton calendariopadrao, calendarioTerceirao;
+	ImageButton calendariopadrao, calendario3;
 	ScaleImageView calendario;
 
 	@Override
@@ -19,11 +19,11 @@ public class Calendario extends Activity implements View.OnClickListener{
 		setContentView(R.layout.calendario_layout);
 		
 		calendariopadrao = (ImageButton)findViewById(R.id.calendariopadrao);
-		calendarioTerceirao = (ImageButton)findViewById(R.id.calendarioTerceirao);
+		calendario3 = (ImageButton)findViewById(R.id.calendario3);
 		calendario = (ScaleImageView)findViewById(R.id.calendario);
 		
 		calendariopadrao.setOnClickListener(this);
-		calendarioTerceirao.setOnClickListener(this);
+		calendario3.setOnClickListener(this);
 		
 	}
 	
@@ -34,13 +34,13 @@ public class Calendario extends Activity implements View.OnClickListener{
 		case R.id.calendariopadrao:
 			calendario.setImageResource(R.drawable.calend);
 			calendario.setVisibility(View.VISIBLE);
-			calendarioTerceirao.setVisibility(View.GONE);
+			calendario3.setVisibility(View.GONE);
 			calendariopadrao.setVisibility(View.GONE);			
 			break;
-		case R.id.calendarioTerceirao:
+		case R.id.calendario3:
 			calendario.setImageResource(R.drawable.calend3);
 			calendario.setVisibility(View.VISIBLE);
-			calendarioTerceirao.setVisibility(View.GONE);
+			calendario3.setVisibility(View.GONE);
 			calendariopadrao.setVisibility(View.GONE);				
 			break;
 		
@@ -53,7 +53,7 @@ public class Calendario extends Activity implements View.OnClickListener{
 	public void onBackPressed() {
 		if(calendario.getVisibility() == View.VISIBLE){
 			calendario.setVisibility(View.GONE);
-			calendarioTerceirao.setVisibility(View.VISIBLE);
+			calendario3.setVisibility(View.VISIBLE);
 			calendariopadrao.setVisibility(View.VISIBLE);
 		} else if(calendario.getVisibility() == View.GONE){
 			super.onBackPressed();
@@ -69,6 +69,7 @@ public class Calendario extends Activity implements View.OnClickListener{
 	@Override
 	public void onPause(){
 		super.onPause();
+		overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 	}
 	
 	@Override
