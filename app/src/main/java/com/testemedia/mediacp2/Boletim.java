@@ -37,7 +37,7 @@ public class Boletim extends Activity implements View.OnClickListener {
     int auxTrimestre, id;
     Context context;
     int duration;
-    Materias materia;
+    Materias materia = new Materias();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +46,11 @@ public class Boletim extends Activity implements View.OnClickListener {
 
         // ------ Declaração das variaveis locais.
         Button atualizar;
-        SQLiteDatabase db; // Variavel do tipo Database
         final String ID = "ca-app-pub-3567961859053683/7232838256";
         int numeroLinha = 1;
 
         SqlCadastro helper = new SqlCadastro(this);
-        db = helper.getWritableDatabase();
+        SQLiteDatabase db = helper.getWritableDatabase();
 
         context = this;
         duration = Toast.LENGTH_SHORT;
@@ -99,34 +98,19 @@ public class Boletim extends Activity implements View.OnClickListener {
                 String textoNome = "SELECT Nome FROM Materias WHERE ID="
                         + Float.toString(current + 1); // Define a pesquisa.
                 try {
-                    SQLiteStatement nomeid = db.compileStatement(textoNome); // Faz
-                    // a
-                    // pesquisa
-                    String nome_id = nomeid.simpleQueryForString(); // Retorna a
-                    // pesquisa
-                    // como
-                    // String.
-                    // Texto do TextView � setado para o nome da mat�ria.
+                    SQLiteStatement nomeid = db.compileStatement(textoNome);
+                    String nome_id = nomeid.simpleQueryForString();
                     nomeTV.setId(current);
                     nomeTV.setText(nome_id); // Seta o texto do TextView
                     nomeTV.setTextColor(Color.BLACK); // Seta a cor do texto.
                     nomeTV.setGravity(Gravity.CENTER);
                     nomeTV.setTextSize(15);
-                    tr.addView(nomeTV); // Adiciona o TextView � Linha
-                    // (TableRow
-                    // tr).
+                    tr.addView(nomeTV);
 
                     // Busca a nota do primeiro trimestre do ID
                     String textoTri1 = "SELECT Tri1 FROM Materias WHERE ID="
                             + Float.toString(current + 1);
-                    SQLiteStatement Tri1id = db.compileStatement(textoTri1); // Faz
-                    // a
-                    // busca
-                    // a
-                    // partir
-                    // da
-                    // string
-                    // acima.
+                    SQLiteStatement Tri1id = db.compileStatement(textoTri1);
                     String Tri1_id = Tri1id.simpleQueryForString();
                     // Cria o TextView da nota, seta a nota a partir da String
                     Tri1TV.setId(current);
@@ -262,6 +246,8 @@ public class Boletim extends Activity implements View.OnClickListener {
                         @Override
                         public void onClick(View v) {
                             criarDialog(v.getId(), 4);
+                            TextView tv = (TextView) findViewById(v.getId());
+                            tv.setText("a");
                         }
                     });
                     if (Float.parseFloat(PFV_id) == 0)
@@ -284,16 +270,9 @@ public class Boletim extends Activity implements View.OnClickListener {
         }
 
         db.close();
-        /*if (prefs.getInt("toast", 1) < 5) {
-            CharSequence text = "NOVIDADE! Agora voc� pode editar suas notas direto a partir do Boletim!";
-			Toast toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
-			toast.show();
-			edit.putInt("toast", prefs.getInt("toast", 1) + 1);
-			edit.apply();
-		}*/
     }
 
-    public void onClick(View v){
+    public void onClick(View v) {
     }
 
     public void carregarAnuncio() {
@@ -304,14 +283,11 @@ public class Boletim extends Activity implements View.OnClickListener {
         editControle = controle.edit();
 
         if (controle.getBoolean("key", true)) {
-            Log.e("entrou ", "IsLoaded");
             if (interstitial.isLoaded()) {
-                Log.e("entrou ", "virou false");
                 editControle.putBoolean("key", false);
                 interstitial.show();
             }
         } else {
-            Log.e("entrou ", "virou true");
             editControle.putBoolean("key", true);
         }
         editControle.commit();
@@ -340,7 +316,6 @@ public class Boletim extends Activity implements View.OnClickListener {
 
     public void criarDialog(int numeroMateria, final int trimestre) {
         EasyTracker tracker = EasyTracker.getInstance(Boletim.this);
-        Materias materia;
 
         tracker.send(MapBuilder.createEvent("Boletim", "Editar",
                 "Edicao Direta do Boletim", null).build());
