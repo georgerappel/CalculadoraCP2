@@ -6,12 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteStatement;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,15 +32,28 @@ public class Boletim extends Activity implements View.OnClickListener {
     private InterstitialAd interstitial;
 
     SqlCadastro mSql = new SqlCadastro(this);
-    int auxTrimestre, id;
+    int auxTrimestre, id, contador = 0;
     Context context;
     int duration;
     Materias materia = new Materias();
+
+    final int TAM_LETRA = 17;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.boletim_layout);
+
+        // ---- Table columns
+        final String _ID = "ID";
+        final String KEY_NOME = "Nome";
+        final String KEY_NOTA1 = "Tri1";
+        final String KEY_NOTA2 = "Tri2";
+        final String KEY_NOTA3 = "Tri3";
+        final String KEY_PRENOTA3 = "Est3Tri";
+        final String KEY_MA = "MA";
+        final String KEY_PREPFV = "EstPFV";
+        final String KEY_PFV = "PFV";
 
         // ------ Declaração das variaveis locais.
         Button atualizar;
@@ -71,208 +82,106 @@ public class Boletim extends Activity implements View.OnClickListener {
         interstitial.loadAd(adRequest2);
 
         TableLayout tl = (TableLayout) findViewById(R.id.maintable);
+        TableRow tr;
 
-        SQLiteStatement statement = db
-                .compileStatement("SELECT MAX(ID) FROM Materias"); // Statement
-        float count = statement.simpleQueryForLong(); // Retorna o resultado da
-        if (count > 0) {
-            for (int current = 0; current < count; current++) {
+        String selection = "SELECT * FROM Materias";
+        Cursor cursor = db.rawQuery(selection, null);
 
-                // Declarando uma linha da tabela e os Views dos dados.
-                TableRow tr = new TableRow(this);
-                TextView nomeTV = new TextView(this);
-                TextView Tri1TV = new TextView(this);
-                TextView Tri2TV = new TextView(this);
-                TextView PreTri3TV = new TextView(this);
-                TextView Tri3TV = new TextView(this);
-                TextView PrePFVTV = new TextView(this);
-                TextView PFVTV = new TextView(this);
-                TextView MATV = new TextView(this);
 
-                // adiciona um ID � tabela
-                tr.setId(100 + current);
+        if (cursor.moveToFirst())
 
-                // Busca o nome da mat�ria de acordo com o ID e retorna pra
-                // uma
-                // String.
-                String textoNome = "SELECT Nome FROM Materias WHERE ID="
-                        + Float.toString(current + 1); // Define a pesquisa.
-                try {
-                    SQLiteStatement nomeid = db.compileStatement(textoNome);
-                    String nome_id = nomeid.simpleQueryForString();
-                    nomeTV.setId(current);
-                    nomeTV.setText(nome_id); // Seta o texto do TextView
-                    nomeTV.setTextColor(Color.BLACK); // Seta a cor do texto.
-                    nomeTV.setGravity(Gravity.CENTER);
-                    nomeTV.setTextSize(15);
-                    tr.addView(nomeTV);
+        {
+            do {
+                if (cursor.getString(cursor.getColumnIndex(_ID)) != null || cursor.getString(cursor.getColumnIndex(_ID)) != "") {
 
-                    // Busca a nota do primeiro trimestre do ID
-                    String textoTri1 = "SELECT Tri1 FROM Materias WHERE ID="
-                            + Float.toString(current + 1);
-                    SQLiteStatement Tri1id = db.compileStatement(textoTri1);
-                    String Tri1_id = Tri1id.simpleQueryForString();
-                    // Cria o TextView da nota, seta a nota a partir da String
-                    Tri1TV.setId(current);
-                    Tri1TV.setText(formatar(Tri1_id));
-                    Tri1TV.setGravity(Gravity.CENTER);
-                    Tri1TV.setTextSize(15);
-                    Tri1TV.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            criarDialog(v.getId(), 1);
-                        }
-                    });
-                    if (Float.parseFloat(Tri1_id) == 0)
-                        Tri1TV.setTextColor(Color.BLACK);
-                    else if (Float.parseFloat(Tri1_id) < 5)
-                        Tri1TV.setTextColor(Color.RED);
-                    else if (Float.parseFloat(Tri1_id) < 7)
-                        Tri1TV.setTextColor(Color.rgb(73, 161, 120));
-                    else
-                        Tri1TV.setTextColor(Color.BLUE);
-                    tr.addView(Tri1TV);
+                    int id_materia = cursor.getInt(cursor.getColumnIndex(_ID));
 
-                    // Create a TextView to house the value of the after-tax
-                    // income
-                    String textoTri2 = "SELECT Tri2 FROM Materias WHERE ID="
-                            + Float.toString(current + 1);
-                    SQLiteStatement Tri2id = db.compileStatement(textoTri2);
-                    String Tri2_id = Tri2id.simpleQueryForString();
+                    tr = new TableRow(this);
+                    tr.setId(id_materia);
 
-                    Tri2TV.setId(current);
-                    Tri2TV.setText(formatar(Tri2_id));
-                    Tri2TV.setGravity(Gravity.CENTER);
-                    Tri2TV.setTextSize(15);
-                    Tri2TV.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            criarDialog(v.getId(), 2);
-                        }
-                    });
-                    if (Float.parseFloat(Tri2_id) == 0)
-                        Tri2TV.setTextColor(Color.BLACK);
-                    else if (Float.parseFloat(Tri2_id) < 5)
-                        Tri2TV.setTextColor(Color.RED);
-                    else if (Float.parseFloat(Tri2_id) < 7)
-                        Tri2TV.setTextColor(Color.rgb(73, 161, 120));
-                    else
-                        Tri2TV.setTextColor(Color.BLUE);
-                    tr.addView(Tri2TV);
+                    tr.addView(criar_tv_nome(cursor.getString(cursor.getColumnIndex(KEY_NOME))));
+                    tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA1)), 1, id_materia));
+                    tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA2)) , 2, id_materia));
+                    tr.addView(criar_tv_cinza( cursor.getString(cursor.getColumnIndex(KEY_PRENOTA3))));
+                    tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA3)), 3, id_materia));
+                    tr.addView(criar_tv_media_anual(cursor.getString(cursor.getColumnIndex(KEY_MA))));
+                    tr.addView(criar_tv_cinza( cursor.getString(cursor.getColumnIndex(KEY_PREPFV)) ) );
+                    tr.addView( criar_tv_colorido( cursor.getString(cursor.getColumnIndex(KEY_PFV)), 4, id_materia) );
 
-                    // Create a TextView to house the value of the after-tax
-                    // income
-                    String textoPreTri3 = "SELECT Est3Tri FROM Materias WHERE ID="
-                            + Float.toString(current + 1);
-                    SQLiteStatement PreTri3id = db
-                            .compileStatement(textoPreTri3);
-                    String PreTri3_id = PreTri3id.simpleQueryForString();
-
-                    PreTri3TV.setId(current);
-                    PreTri3TV.setText(formatar(PreTri3_id));
-                    PreTri3TV.setTextColor(Color.GRAY);
-                    PreTri3TV.setGravity(Gravity.CENTER);
-                    PreTri3TV.setTextSize(15);
-                    tr.addView(PreTri3TV);
-
-                    // Create a TextView to house the value of the after-tax
-                    // income
-                    String textoTri3 = "SELECT Tri3 FROM Materias WHERE ID="
-                            + Float.toString(current + 1);
-                    SQLiteStatement Tri3id = db.compileStatement(textoTri3);
-                    String Tri3_id = Tri3id.simpleQueryForString();
-
-                    Tri3TV.setId(current);
-                    Tri3TV.setText(formatar(Tri3_id));
-                    Tri3TV.setGravity(Gravity.CENTER);
-                    Tri3TV.setTextSize(15);
-                    Tri3TV.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            criarDialog(v.getId(), 3);
-                        }
-                    });
-                    if (Float.parseFloat(Tri3_id) == 0)
-                        Tri3TV.setTextColor(Color.BLACK);
-                    else if (Float.parseFloat(Tri3_id) < 5)
-                        Tri3TV.setTextColor(Color.RED);
-                    else if (Float.parseFloat(Tri3_id) < 7)
-                        Tri3TV.setTextColor(Color.rgb(73, 161, 120));
-                    else
-                        Tri3TV.setTextColor(Color.BLUE);
-                    tr.addView(Tri3TV);
-
-                    // Create a TextView to house the value of the after-tax
-                    // income
-                    String textoMA = "SELECT MA FROM Materias WHERE ID="
-                            + Float.toString(current + 1);
-                    SQLiteStatement MAid = db.compileStatement(textoMA);
-                    String MA_id = MAid.simpleQueryForString();
-                    MATV.setId(current);
-                    MATV.setText(formatar(MA_id));
-                    MATV.setTextSize(15);
-                    if (Float.parseFloat(MA_id) == 0)
-                        MATV.setTextColor(Color.BLACK);
-                    else
-                        MATV.setTextColor(Color.BLUE);
-                    MATV.setGravity(Gravity.CENTER);
-                    tr.addView(MATV);
-
-                    // Create a TextView to house the value of the after-tax
-                    // income
-                    String textoPrePFV = "SELECT EstPFV FROM Materias WHERE ID="
-                            + Float.toString(current + 1);
-                    SQLiteStatement PrePFVid = db.compileStatement(textoPrePFV);
-                    String PrePFV_id = PrePFVid.simpleQueryForString();
-
-                    PrePFVTV.setId(current);
-                    PrePFVTV.setText(formatar(PrePFV_id));
-                    PrePFVTV.setTextColor(Color.GRAY);
-                    PrePFVTV.setGravity(Gravity.CENTER);
-                    PrePFVTV.setTextSize(15);
-                    tr.addView(PrePFVTV);
-
-                    // Create a TextView to house the value of the after-tax
-                    // income
-                    String textoPFV = "SELECT PFV FROM Materias WHERE ID="
-                            + Float.toString(current + 1);
-                    SQLiteStatement PFVid = db.compileStatement(textoPFV);
-                    String PFV_id = PFVid.simpleQueryForString();
-
-                    PFVTV.setId(current);
-                    PFVTV.setText(formatar(PFV_id));
-                    PFVTV.setTextSize(15);
-                    PFVTV.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            criarDialog(v.getId(), 4);
-                            TextView tv = (TextView) findViewById(v.getId());
-                            tv.setText("a");
-                        }
-                    });
-                    if (Float.parseFloat(PFV_id) == 0)
-                        PFVTV.setTextColor(Color.BLACK);
-                    else
-                        PFVTV.setTextColor(Color.BLUE);
-                    PFVTV.setGravity(Gravity.CENTER);
-                    tr.addView(PFVTV);
-
-                    // Adiciona a TableRow (Linha de Tabela) no layout.
-                    tl.addView(tr, numeroLinha);
-                    numeroLinha++;
-
-                    // No final, retorna ao in�cio e faz tudo com pr�ximo
-                    // ID.
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
+                    tl.addView(tr);
                 }
-            }
+            } while (cursor.moveToNext()); // Move cursor para a proxima tupla, enquanto houver.
         }
 
+        cursor.close();
         db.close();
     }
 
     public void onClick(View v) {
+    }
+
+    public TextView criar_tv_nome(String text){
+        TextView tv = new TextView(this);
+        tv.setId(contador + 1);
+        tv.setText(text);
+        tv.setTextColor(Color.BLACK);
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextSize(TAM_LETRA);
+        return tv;
+    }
+
+    public TextView criar_tv_media_anual(String text){
+        TextView tv = new TextView(this);
+        tv.setId(contador + 1);
+        tv.setText(formatar(text));
+
+        if(Float.parseFloat(text) == 0)
+            tv.setTextColor(Color.BLACK);
+        else
+            tv.setTextColor(Color.BLUE);
+
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextSize(TAM_LETRA);
+        return tv;
+    }
+
+    // ---- TextView cinza - Usado para Est PFV e Est 3Tri.
+    public TextView criar_tv_cinza(String text){
+        TextView tv = new TextView(this);
+        tv.setId(contador + 1);
+        tv.setText(formatar(text));
+        tv.setTextColor(Color.GRAY);
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextSize(TAM_LETRA);
+        return tv;
+    }
+
+    // ---- TextView Colorido - texto colorido para 1, 2 e 3 trimestres e PFV.
+    public TextView criar_tv_colorido(String text, int trimestre, int id_materia){
+        TextView tv = new TextView(this);
+
+        // ---- Ver funcaoo para explicacao.
+        tv.setId(aumentar_id(id_materia, trimestre));
+        tv.setText(formatar(text));
+
+        if(Float.parseFloat(text) == 0)
+            tv.setTextColor(Color.BLACK);
+        else if (Float.parseFloat(text) < 5)
+            tv.setTextColor(Color.RED);
+        else if (Float.parseFloat(text) < 5)
+            tv.setTextColor(Color.GREEN);
+        else
+            tv.setTextColor(Color.BLUE);
+
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextSize(TAM_LETRA);
+        tv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                criarDialog(diminuir_id(v.getId()), determinar_trimestre_pelo_id(v.getId()));
+            }
+        });
+        return tv;
     }
 
     public void carregarAnuncio() {
@@ -307,11 +216,31 @@ public class Boletim extends Activity implements View.OnClickListener {
     }
 
     public static String formatar(String text) {
-
         float nota = Float.parseFloat(text);
         DecimalFormat Formatacao = new DecimalFormat("0.00");
         text = Formatacao.format(nota);
         return text;
+    }
+
+    public int aumentar_id(int id_materia, int trimestre){
+        // ---- O id é determinado com o ID na tabela somado de 100 * trimestre.
+        // ---- Na hora de checar qual é o trimestre, basta ler a função "descobrir_trimestre"
+        return id_materia + 100*trimestre;
+    }
+
+    public int diminuir_id(int id){
+        return id - 100*(determinar_trimestre_pelo_id(id));
+    }
+
+    public int determinar_trimestre_pelo_id(int id){
+        if(id > 400)
+            return 4;
+        else if (id > 300)
+            return 3;
+        else if (id > 200)
+            return 2;
+        else
+            return 1;
     }
 
     public void criarDialog(int numeroMateria, final int trimestre) {
@@ -320,7 +249,7 @@ public class Boletim extends Activity implements View.OnClickListener {
         tracker.send(MapBuilder.createEvent("Boletim", "Editar",
                 "Edicao Direta do Boletim", null).build());
         auxTrimestre = trimestre;
-        id = numeroMateria + 1;
+        id = numeroMateria;
         float nota = 0;
         materia = mSql.buscarId(id);
         String texto = "Erro.";
