@@ -34,7 +34,7 @@
         <activity
             android:name="com.testemedia.mediacp2.MenuTimetable"
             android:label="@string/timetable"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="fullSensor" >
         </activity>
         <activity
             android:name="com.testemedia.mediacp2.Proeja"
@@ -109,7 +109,7 @@
         <activity
             android:name="com.testemedia.mediacp2.Calendario"
             android:label="Calendario"
-            android:screenOrientation="sensorLandscape" >
+            android:screenOrientation="fullSensor" >
         </activity>
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

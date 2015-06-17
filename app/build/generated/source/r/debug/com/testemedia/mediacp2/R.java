@@ -1700,10 +1700,8 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f020059;
         public static final int ic_plusone_standard_off_client=0x7f02005a;
         public static final int ic_plusone_tall_off_client=0x7f02005b;
-        public static final int linha=0x7f02005c;
-        public static final int newfundo2=0x7f02005d;
-        public static final int powered_by_google_dark=0x7f02005e;
-        public static final int powered_by_google_light=0x7f02005f;
+        public static final int powered_by_google_dark=0x7f02005c;
+        public static final int powered_by_google_light=0x7f02005d;
     }
     public static final class id {
         public static final int ScrollView01=0x7f08007f;
@@ -1745,7 +1743,7 @@ containing a value of this type.
         public static final int cadastrar=0x7f080061;
         public static final int calcular=0x7f08009c;
         public static final int calendario=0x7f08006d;
-        public static final int calendario3=0x7f08006c;
+        public static final int calendarioTerceirao=0x7f08006c;
         public static final int calendariopadrao=0x7f08006b;
         public static final int cert1=0x7f08009b;
         public static final int cert2=0x7f08009f;

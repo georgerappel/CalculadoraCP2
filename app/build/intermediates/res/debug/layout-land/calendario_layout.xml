@@ -13,7 +13,7 @@
         android:src="@drawable/calendariobotaogeral" />
 
     <ImageButton
-        android:id="@+id/calendario3"
+        android:id="@+id/calendarioTerceirao"
         android:layout_width="fill_parent"
         android:layout_weight="1"
         android:layout_height="fill_parent"

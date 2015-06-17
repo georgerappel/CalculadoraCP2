@@ -440,10 +440,8 @@ int drawable ic_plusone_medium_off_client 0x7f020058
 int drawable ic_plusone_small_off_client 0x7f020059
 int drawable ic_plusone_standard_off_client 0x7f02005a
 int drawable ic_plusone_tall_off_client 0x7f02005b
-int drawable linha 0x7f02005c
-int drawable newfundo2 0x7f02005d
-int drawable powered_by_google_dark 0x7f02005e
-int drawable powered_by_google_light 0x7f02005f
+int drawable powered_by_google_dark 0x7f02005c
+int drawable powered_by_google_light 0x7f02005d
 int id ScrollView01 0x7f08007f
 int id ScrollView1 0x7f08005d
 int id TextView01 0x7f080086
@@ -483,7 +481,7 @@ int id cadTopo 0x7f080078
 int id cadastrar 0x7f080061
 int id calcular 0x7f08009c
 int id calendario 0x7f08006d
-int id calendario3 0x7f08006c
+int id calendarioTerceirao 0x7f08006c
 int id calendariopadrao 0x7f08006b
 int id cert1 0x7f08009b
 int id cert2 0x7f08009f
