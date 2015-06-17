@@ -27,11 +27,11 @@ public class SqlTimetable extends SQLiteOpenHelper {
     private static final String KEY_HORARIO = "Horario";
     private static final String KEY_DOMINGO = "Domingo";
     private static final String KEY_SEGUNDA = "Segunda";
-    private static final String KEY_TERCA = "Terça";
+    private static final String KEY_TERCA = "Terca";
     private static final String KEY_QUARTA = "Quarta";
     private static final String KEY_QUINTA = "Quinta";
     private static final String KEY_SEXTA = "Sexta";
-    private static final String KEY_SABADO = "Sábado";
+    private static final String KEY_SABADO = "Sabado";
 
     public SqlTimetable(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -59,7 +59,8 @@ public class SqlTimetable extends SQLiteOpenHelper {
     public void addHorario(Timetable timetable) {
         //Abre a DB
         SQLiteDatabase db = this.getWritableDatabase();
-        // Declara uma variavel para os valores.
+
+        // Declara uma variavel para os valores
         ContentValues values = new ContentValues();
 
         //Inserindo as informacoes do parametro na variavel.
@@ -127,7 +128,6 @@ public class SqlTimetable extends SQLiteOpenHelper {
         // Move o cursor ao primeiro nome, caso nao esteja vazia.
         if (cursor1.moveToFirst()) {
             do {
-                // Se o nome estiver vazio, preenche com espaco.
                 if (cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) == null || cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) == "") {
                     //apenas pular a linha
                 } else {
@@ -150,6 +150,13 @@ public class SqlTimetable extends SQLiteOpenHelper {
         }
         cursor1.close();
         db.close();
+
         return array;
+    }
+
+    public void inserir_horario(String horario){
+    }
+
+    public void inserir_tupla(Timetable tupla){
     }
 }
