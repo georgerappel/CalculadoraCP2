@@ -63,6 +63,9 @@ public class SqlTimetable extends SQLiteOpenHelper {
         // Declara uma variavel para os valores
         ContentValues values = new ContentValues();
 
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_GRADE_HORARIA + " WHERE " + KEY_HORARIO " = '" + timetable.getHorario()"'", null);
+        cursor.getInt()
+
         //Inserindo as informacoes do parametro na variavel.
         values.put(KEY_HORARIO, timetable.getHorario());
         values.put(KEY_DOMINGO, timetable.getDomingo());
@@ -128,9 +131,8 @@ public class SqlTimetable extends SQLiteOpenHelper {
         // Move o cursor ao primeiro nome, caso nao esteja vazia.
         if (cursor1.moveToFirst()) {
             do {
-                if (cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) == null || cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) == "") {
-                    //apenas pular a linha
-                } else {
+                if (cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) != null) {
+
                     tupla.setHorario(cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)));
                     tupla.setDomingo(cursor1.getString(cursor1.getColumnIndex(KEY_DOMINGO)));
                     tupla.setSegunda(cursor1.getString(cursor1.getColumnIndex(KEY_SEGUNDA)));
@@ -139,7 +141,6 @@ public class SqlTimetable extends SQLiteOpenHelper {
                     tupla.setQuinta(cursor1.getString(cursor1.getColumnIndex(KEY_QUINTA)));
                     tupla.setSexta(cursor1.getString(cursor1.getColumnIndex(KEY_SEXTA)));
                     tupla.setSabado(cursor1.getString(cursor1.getColumnIndex(KEY_SABADO)));
-
                     // Coloca a tupla no array a ser retornado
                     array[i] = new Timetable(); // ---- Precaução
                     array[i] = tupla;

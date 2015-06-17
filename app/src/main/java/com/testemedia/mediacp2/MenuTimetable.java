@@ -16,11 +16,13 @@ import android.widget.TextView;
  */
 public class MenuTimetable extends Activity implements View.OnClickListener {
 
-    int controle = 0; // ---- Controla os ids dos TextViews e o loop durante o preenchimento
+    int id_tupla = 0; // ---- Controla os ids dos TextViews e o loop durante o preenchimento
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menutimetable_layout);
+
+        final String _ID = "ID";
 
         String KEY_HORARIO = "Horario";
         String KEY_DOMINGO = "Domingo";
@@ -48,10 +50,12 @@ public class MenuTimetable extends Activity implements View.OnClickListener {
 
         {
             do {
-                if (cursor.getString(cursor.getColumnIndex(KEY_HORARIO)) != null || cursor.getString(cursor.getColumnIndex(KEY_HORARIO)) != "") {
+                if (cursor.getString(cursor.getColumnIndex(KEY_HORARIO)) != null) {
+
+                    id_tupla = cursor.getInt(cursor.getColumnIndex(_ID));
 
                     tr = new TableRow(this);
-                    tr.setId(controle + 1);
+                    tr.setId(id_tupla);
 
                     tr.addView(barra_divisoria());
                     tr.addView(tv_escreve_disciplina(cursor.getString(cursor.getColumnIndex(KEY_HORARIO))));
@@ -74,7 +78,7 @@ public class MenuTimetable extends Activity implements View.OnClickListener {
                     tl.addView(tr);
                     tl.addView(linha_divisoria());
 
-                    controle++;
+                    id_tupla++;
                 }
             } while (cursor.moveToNext()); // Move cursor para a proxima tupla, enquanto houver.
         }
@@ -82,15 +86,6 @@ public class MenuTimetable extends Activity implements View.OnClickListener {
         cursor.close();
         db.close();
         helper.close();
-        /*
-         ---- PARA ADICIONAR LINHA ENTRE AS TABELAS
-        tr.addView(mTvDate);
-        tr.addView(barra_divisoria()); // Adiciona uma barra vertical
-        tr.addView(mTvResult);
-        tr.addView(barra_divisoria());
-        tl.addView(tr);
-        tl.addView(linha_divisoria());
-         */
     }
 
     @Override
@@ -107,14 +102,14 @@ public class MenuTimetable extends Activity implements View.OnClickListener {
 
     public View barra_divisoria() {
         View v = new View(this);
-        v.setLayoutParams(new TableRow.LayoutParams(1, TableRow.LayoutParams.MATCH_PARENT));
+        v.setLayoutParams(new TableRow.LayoutParams(2, TableRow.LayoutParams.MATCH_PARENT));
         v.setBackgroundColor(Color.rgb(170, 170, 170));
         return v;
     }
 
     public TextView tv_escreve_disciplina(String disciplina){
         TextView tv = new TextView(this);
-        tv.setId(controle + 1);
+        tv.setId(id_tupla);
         tv.setText(disciplina);
         tv.setTextColor(Color.BLACK);
         tv.setGravity(Gravity.CENTER);
