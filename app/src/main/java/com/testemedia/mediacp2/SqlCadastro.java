@@ -14,10 +14,10 @@ public class SqlCadastro extends SQLiteOpenHelper {
 	// Database Name
 	private static final String DATABASE_NAME = "contactsManager";
 
-	// Contacts table name
+	// ---- Table name
 	private static final String TABLE_MATERIAS = "Materias";
 
-	// Contacts Table Columns names
+	// ---- Table columns
 	private static final String _ID = "ID";
 	private static final String KEY_NOME = "Nome";
 	private static final String KEY_NOTA1 = "Tri1";
