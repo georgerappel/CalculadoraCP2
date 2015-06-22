@@ -32,7 +32,7 @@
                     android:id="@+id/table">
 
                     <View
-                        android:layout_width="2dp"
+                        android:layout_width="3dp"
                         android:layout_height="fill_parent"
                         android:background="@android:color/darker_gray"/>
 
@@ -134,6 +134,11 @@
                         android:padding="5dip"
                         android:text="Domingo"
                         android:textSize="21sp" />
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="fill_parent"
+                        android:background="@android:color/darker_gray"/>
 
 
                 </TableRow>
