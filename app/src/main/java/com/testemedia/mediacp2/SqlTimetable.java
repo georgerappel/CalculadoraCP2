@@ -64,20 +64,23 @@ public class SqlTimetable extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_GRADE_HORARIA + " WHERE " + KEY_HORARIO " = '" + timetable.getHorario()"'", null);
-        cursor.getInt()
+        // ---- Caso já exista este horario na tabela, não fazer nada.
+        if(cursor.getInt(cursor.getColumnIndex("COUNT(*)")) > 0){
+            return;
+        } else {
+            //Inserindo as informacoes do parametro na variavel.
+            values.put(KEY_HORARIO, timetable.getHorario());
+            values.put(KEY_DOMINGO, timetable.getDomingo());
+            values.put(KEY_SEGUNDA, timetable.getSegunda());
+            values.put(KEY_TERCA, timetable.getTerca());
+            values.put(KEY_QUARTA, timetable.getQuarta());
+            values.put(KEY_QUINTA, timetable.getQuinta());
+            values.put(KEY_SEXTA, timetable.getSexta());
+            values.put(KEY_SABADO, timetable.getSabado());
 
-        //Inserindo as informacoes do parametro na variavel.
-        values.put(KEY_HORARIO, timetable.getHorario());
-        values.put(KEY_DOMINGO, timetable.getDomingo());
-        values.put(KEY_SEGUNDA, timetable.getSegunda());
-        values.put(KEY_TERCA, timetable.getTerca());
-        values.put(KEY_QUARTA, timetable.getQuarta());
-        values.put(KEY_QUINTA, timetable.getQuinta());
-        values.put(KEY_SEXTA, timetable.getSexta());
-        values.put(KEY_SABADO, timetable.getSabado());
-
-        // Inserindo os valores na tabela.
-        db.insertOrThrow(TABLE_GRADE_HORARIA, null, values);
+            // Inserindo os valores na tabela.
+            db.insertOrThrow(TABLE_GRADE_HORARIA, null, values);
+        }
 
         //Fecha a DB
         db.close();
