@@ -43,6 +43,12 @@
 	<string name="editarMat">Editar Disciplina</string>
 	<string name="PFV">Nota PFV:</string>
 	<string name="footer">Toque e segure no nome da matéria que deseja editar ou remover.</string>
-	
+    <string name="segunda">Segunda</string>
+    <string name="terca">Terça</string>
+    <string name="quarta">Quarta</string>
+    <string name="quinta">Quinta</string>
+    <string name="sexta">Sexta</string>
+    <string name="sabado">Sabado</string>
+    <string name="domingo">Domingo</string>
 	
 </resources>

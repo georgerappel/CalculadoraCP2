@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.testemedia.mediacp2"
-    android:versionCode="21"
-    android:versionName="1.26" >
+    android:versionCode="22"
+    android:versionName="1.27" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -102,6 +102,18 @@
             android:label="Alterar Matéria"
             android:screenOrientation="portrait" >
         </activity>
+
+        <activity
+            android:name=".TimeTableActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+
+        <activity
+            android:name=".AddTimetable">
+
+        </activity>
+
         <activity
             android:name=".Calendario"
             android:label="Calendario"

@@ -70,8 +70,8 @@ public class Boletim extends Activity implements View.OnClickListener {
         atualizar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = getIntent();
-                finish();
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -210,7 +210,9 @@ public class Boletim extends Activity implements View.OnClickListener {
 
     @Override
     public void onStop() {
-        carregarAnuncio();
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
         super.onStop();
         EasyTracker.getInstance(this).activityStop(this);
     }
@@ -304,7 +306,6 @@ public class Boletim extends Activity implements View.OnClickListener {
             }
         });
         dialog.show();
-
     }
 
     public void salvarNota(float nota) {
