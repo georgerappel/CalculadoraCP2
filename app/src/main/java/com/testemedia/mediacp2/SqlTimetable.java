@@ -7,7 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.ArrayAdapter;
 
+import com.google.analytics.tracking.android.Log;
+
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Lucas Braga & George Rappel on 27/05/2015.
@@ -17,21 +21,17 @@ public class SqlTimetable extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "timeTable";
+    private static final String DATABASE_NAME = "TimeTable";
 
 
-    private static final String TABLE_GRADE_HORARIA = "GradeHoraria";
+    private static final String TABLE_LISTA = "Lista";
 
 
     private static final String _ID = "ID";
-    private static final String KEY_HORARIO = "Horario";
-    private static final String KEY_DOMINGO = "Domingo";
-    private static final String KEY_SEGUNDA = "Segunda";
-    private static final String KEY_TERCA = "Terca";
-    private static final String KEY_QUARTA = "Quarta";
-    private static final String KEY_QUINTA = "Quinta";
-    private static final String KEY_SEXTA = "Sexta";
-    private static final String KEY_SABADO = "Sabado";
+    private static final String KEY_LABEL_DIA = "DiaSemana";
+    public static final String KEY_HORARIO = "Horario";
+    public static final String KEY_MATERIA = "Materia";
+    public static final String KEY_PROFESSOR ="Professor";
 
     public SqlTimetable(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,126 +41,90 @@ public class SqlTimetable extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_TIME_TABLE = "CREATE TABLE " + TABLE_GRADE_HORARIA+ "("
-                + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_HORARIO
-                + " TEXT," + KEY_DOMINGO + " TEXT," + KEY_SEGUNDA + " TEXT,"
-                + KEY_TERCA + " TEXT," + KEY_QUARTA + " TEXT," + KEY_QUINTA
-                + " TEXT," + KEY_SEXTA + " TEXT, " + KEY_SABADO + " TEXT)";
+        String CREATE_TIME_TABLE = "CREATE TABLE " + TABLE_LISTA+ "("
+                + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_LABEL_DIA + " INTEGER," + KEY_HORARIO
+                + " TEXT," + KEY_MATERIA + " TEXT," + KEY_PROFESSOR + " TEXT);";
         sqLiteDatabase.execSQL(CREATE_TIME_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_GRADE_HORARIA);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_LISTA);
         onCreate(sqLiteDatabase);
 
     }
 
-    public void addHorario(Timetable timetable) {
+    public void addMateria(Timetable timetable){
         //Abre a DB
         SQLiteDatabase db = this.getWritableDatabase();
 
-        // Declara uma variavel para os valores
+        // Declara uma variavel para os valores.
         ContentValues values = new ContentValues();
 
-        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_GRADE_HORARIA + " WHERE " + KEY_HORARIO " = '" + timetable.getHorario()"'", null);
-        // ---- Caso já exista este horario na tabela, não fazer nada.
-        if(cursor.getInt(cursor.getColumnIndex("COUNT(*)")) > 0){
-            return;
-        } else {
-            //Inserindo as informacoes do parametro na variavel.
-            values.put(KEY_HORARIO, timetable.getHorario());
-            values.put(KEY_DOMINGO, timetable.getDomingo());
-            values.put(KEY_SEGUNDA, timetable.getSegunda());
-            values.put(KEY_TERCA, timetable.getTerca());
-            values.put(KEY_QUARTA, timetable.getQuarta());
-            values.put(KEY_QUINTA, timetable.getQuinta());
-            values.put(KEY_SEXTA, timetable.getSexta());
-            values.put(KEY_SABADO, timetable.getSabado());
+        //Inserindo as informacoes do parametro na variavel.
+        values.put(KEY_HORARIO, timetable.getHorario());
+        values.put(KEY_PROFESSOR, timetable.getProfessor());
+        values.put(KEY_LABEL_DIA, timetable.getLabelSemana());
+        values.put(KEY_MATERIA, timetable.getMateria());
 
-            // Inserindo os valores na tabela.
-            db.insertOrThrow(TABLE_GRADE_HORARIA, null, values);
-        }
+        // Inserindo os valores na tabela.
+        db.insertOrThrow(TABLE_LISTA, null, values);
 
         //Fecha a DB
         db.close();
+
     }
 
-    public int encontrarId(String horario) {
+
+    public void updateMateria(Timetable timetable) {
+
         SQLiteDatabase db = this.getWritableDatabase();
-        int id;
-        // Define e faz a selecao na tabela.
-        String selection = "SELECT " + _ID + " FROM " + TABLE_GRADE_HORARIA + " WHERE Horario = '" + horario + "'";
-        Cursor cursor = db.rawQuery(selection, null);
-        // Move o cursor para o primeiro (e unico) resultado.
-        if (cursor.moveToFirst()) {
-            // Pega o valor do ID e retorna-o.
-            id = cursor.getInt(cursor.getColumnIndex(_ID));
-            db.close();
-            cursor.close();
-            return id;
-        } else {
-            // Caso nao retorne resultados, o valor sera -1.
-            db.close();
-            cursor.close();
-            return -1;
-        }
+
+
+        // this is a key value pair holder used by android's SQLite functions
+        ContentValues values = new ContentValues();
+        values.put(KEY_HORARIO, timetable.getHorario());
+        values.put(KEY_PROFESSOR, timetable.getProfessor());
+        values.put(KEY_LABEL_DIA, timetable.getLabelSemana());
+        values.put(KEY_MATERIA, timetable.getMateria());
+
+        // Atualiza o registro na tabela.
+        db.replace(TABLE_LISTA, null, values);
+
+        db.close(); // Fechando a database.
     }
 
-    public void removeHorario(Timetable tupla) {
+    public void deleteMateria(Timetable timetable) {
 
         // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
 
         // Checa se o nome nao e nulo nem esta vazio.
-        if (tupla.getHorario() != null && tupla.getHorario() != "")
-            db.delete(TABLE_GRADE_HORARIA, KEY_HORARIO + " = ?", new String[] { tupla.getHorario() });
+        if (timetable.getMateria() != null && timetable.getMateria() != "")
+            db.delete(TABLE_LISTA, "Nome = ?",
+                    new String[] { timetable.getMateria() }); // args
 
         // Fechando a DB
         db.close();
     }
 
-    public Timetable[] listarHorarios(){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        Timetable[] array;
-        Timetable tupla = new Timetable();
-        int i = 0;
-
-        String selectQuery = "SELECT * FROM " + TABLE_GRADE_HORARIA;
-        Cursor cursor1 = db.rawQuery(selectQuery, null);
-        array = new Timetable[cursor1.getCount()]; //Conta as linhas e cria o array com o tamanho adequado;
-
-        // Move o cursor ao primeiro nome, caso nao esteja vazia.
-        if (cursor1.moveToFirst()) {
-            do {
-                if (cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)) != null) {
-
-                    tupla.setHorario(cursor1.getString(cursor1.getColumnIndex(KEY_HORARIO)));
-                    tupla.setDomingo(cursor1.getString(cursor1.getColumnIndex(KEY_DOMINGO)));
-                    tupla.setSegunda(cursor1.getString(cursor1.getColumnIndex(KEY_SEGUNDA)));
-                    tupla.setTerca(cursor1.getString(cursor1.getColumnIndex(KEY_TERCA)));
-                    tupla.setQuarta(cursor1.getString(cursor1.getColumnIndex(KEY_QUARTA)));
-                    tupla.setQuinta(cursor1.getString(cursor1.getColumnIndex(KEY_QUINTA)));
-                    tupla.setSexta(cursor1.getString(cursor1.getColumnIndex(KEY_SEXTA)));
-                    tupla.setSabado(cursor1.getString(cursor1.getColumnIndex(KEY_SABADO)));
-                    // Coloca a tupla no array a ser retornado
-                    array[i] = new Timetable(); // ---- Precaução
-                    array[i] = tupla;
-                    tupla = new Timetable(); // ---- Limpa a tupla para o loop
-                    i++;
-                }
-            } while (cursor1.moveToNext()); // Move cursor para a proxima tupla
+    public int getCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_LISTA;
+        int count = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        if(cursor != null && !cursor.isClosed()){
+            count = cursor.getCount();
+            cursor.close();
         }
-        cursor1.close();
-        db.close();
-
-        return array;
+        return count;
     }
 
-    public void inserir_horario(String horario){
+    public Cursor getRows(int label){
+        //Abre a DB
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT rowid _id,* FROM "+TABLE_LISTA+ " WHERE " +KEY_LABEL_DIA + " = " + label;
+        return db.rawQuery(query,null);
     }
 
-    public void inserir_tupla(Timetable tupla){
-    }
 }

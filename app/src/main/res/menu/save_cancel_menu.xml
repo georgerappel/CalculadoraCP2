@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:calculadoracp2="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_bar_button_ok"
+        android:title="Salvar"
+        android:orderInCategory="2"
+        calculadoracp2:showAsAction="always"
+        android:text="Salvar"/>
+    <item
+        android:id="@+id/action_bar_button_cancel"
+        android:title="Cancelar"
+        android:orderInCategory="1"
+        calculadoracp2:showAsAction="always"
+        />
+
+</menu>

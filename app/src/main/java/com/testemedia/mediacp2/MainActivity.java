@@ -1,8 +1,6 @@
 package com.testemedia.mediacp2;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
@@ -74,18 +72,23 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
+        EasyTracker tracker = EasyTracker.getInstance(MainActivity.this);
         switch (item.getItemId()) {
             case R.id.informacoes:
-                tracker.send(MapBuilder.createEvent("Informacoes Actionbar", "", "", null).build());
+                tracker.send(MapBuilder.createEvent("Menubar", "Informacoes",
+                        "Informacoes", null).build());
                 Intent Info = new Intent(this, Info.class);
                 this.startActivity(Info);
                 return true;
             case R.id.calendario:
+                tracker.send(MapBuilder.createEvent("Menubar", "calendario",
+                        "calendario", null).build());
                 Intent Calendario = new Intent(this, Calendario.class);
                 this.startActivity(Calendario);
                 return true;
             case R.id.share:
-                tracker.send(MapBuilder.createEvent("COMPARTILHAR Actionbar", "", "", null).build());
+                tracker.send(MapBuilder.createEvent("Menubar", "Compartilhar",
+                        "Compartilhar", null).build());
                 onShareAction();
                 return true;
             default:
@@ -107,6 +110,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         Intent Time = new Intent(this,MenuTimetable.class);
         Intent Proeja = new Intent(this,Proeja.class);
         Intent Calendario2 = new Intent(this, Calendario.class);
+        Intent TimeTable = new Intent(this,TimeTableActivity.class);
 
 		switch (v.getId()) {
 		case R.id.botaoMA:
@@ -119,7 +123,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
              this.startActivity(Proeja);
              break;
         case R.id.timetable:
-            this.startActivity(Time);
+            //Toast.makeText(this, "Em breve.", Toast.LENGTH_SHORT).show();
+           this.startActivity(TimeTable);
             break;
         case R.id.botaoCalendario:
             this.startActivity(Calendario2);
