@@ -7,12 +7,19 @@ public class Timetable {
 
     private String professor, horario, materia;
     private int labelSemana;
+    private int id;
 
     public Timetable(String horario, String professor, String materia, int labelSemana){
         this.horario = horario;
         this.professor = professor;
         this.materia = materia;
         this.labelSemana = labelSemana;
+        id = -1;
+    }
+
+    public Timetable(int id, String horario, String professor, String materia, int labelSemana){
+        this(horario, professor, materia, labelSemana);
+        this.id = id;
     }
 
     public String getProfessor(){return professor;}
@@ -25,6 +32,9 @@ public class Timetable {
     public void setHorario(String horario){this.horario = horario;}
     public void setLabelSemana(int labelSemana){this.labelSemana = labelSemana;}
 
-
+    @Override
+    public String toString(){
+        return "ID: " + id + " | " + materia + " | Prof. " + professor + " | " + horario;
+    }
 
 }

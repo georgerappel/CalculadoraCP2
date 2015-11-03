@@ -72,14 +72,12 @@ public class SqlTimetable extends SQLiteOpenHelper {
 
         //Fecha a DB
         db.close();
-
     }
 
 
     public void updateMateria(Timetable timetable) {
 
         SQLiteDatabase db = this.getWritableDatabase();
-
 
         // this is a key value pair holder used by android's SQLite functions
         ContentValues values = new ContentValues();
@@ -125,6 +123,16 @@ public class SqlTimetable extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT rowid _id,* FROM "+TABLE_LISTA+ " WHERE " +KEY_LABEL_DIA + " = " + label;
         return db.rawQuery(query,null);
+    }
+
+    public static Timetable cursorToTimetable(Cursor cursor, int position){
+        cursor.moveToPosition(position);
+        Timetable timetable = new Timetable(cursor.getInt(cursor.getColumnIndex(_ID)),
+                cursor.getString(cursor.getColumnIndex(KEY_HORARIO)),
+                cursor.getString(cursor.getColumnIndex(KEY_PROFESSOR)),
+                cursor.getString(cursor.getColumnIndex(KEY_MATERIA)),
+                cursor.getInt(cursor.getColumnIndex(KEY_LABEL_DIA)));
+        return timetable;
     }
 
 }

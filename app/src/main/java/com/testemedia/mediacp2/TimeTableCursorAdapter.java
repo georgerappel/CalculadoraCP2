@@ -22,7 +22,7 @@ public class TimeTableCursorAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.fragment_main_dummy, parent, false);
+        return LayoutInflater.from(context).inflate(R.layout.timetable_listview_item, parent, false);
     }
 
     @Override
@@ -39,6 +39,5 @@ public class TimeTableCursorAdapter extends CursorAdapter {
         tthorario.setText(horario);
         ttprofessor.setText(professor);
         ttmateria.setText(materia);
-
     }
 }

@@ -30,7 +30,17 @@
         android:hint="Materia"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:padding="16dp"/>
+        android:padding="12dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/adcprofessor"
+        android:hint="Professor/Professora"
+        android:layout_below="@+id/adcmateria"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="12dp"/>
 
     <TimePicker
         android:layout_width="wrap_content"
@@ -38,6 +48,8 @@
         android:id="@+id/timePicker"
         android:layout_below="@+id/horarioinicio"
         android:layout_centerHorizontal="true"
+        android:numbersSelectorColor="#ff000000"
+        android:timePickerMode="clock"
         android:padding="16dp"/>
 
     <TextView
@@ -51,14 +63,6 @@
         android:paddingTop="16dp"
         android:paddingBottom="8dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/adcprofessor"
-        android:hint="Professor/Professora"
-        android:layout_below="@+id/adcmateria"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
