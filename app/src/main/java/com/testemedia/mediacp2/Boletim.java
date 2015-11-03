@@ -29,15 +29,20 @@ import com.google.android.gms.ads.InterstitialAd;
 import java.text.DecimalFormat;
 
 public class Boletim extends Activity implements View.OnClickListener {
-    private InterstitialAd interstitial;
-
+    final int TAM_LETRA = 17;
     SqlCadastro mSql = new SqlCadastro(this);
     int auxTrimestre, id, contador = 0;
     Context context;
     int duration;
     Materias materia = new Materias();
+    private InterstitialAd interstitial;
 
-    final int TAM_LETRA = 17;
+    public static String formatar(String text) {
+        float nota = Float.parseFloat(text);
+        DecimalFormat Formatacao = new DecimalFormat("0.00");
+        text = Formatacao.format(nota);
+        return text;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,12 +106,12 @@ public class Boletim extends Activity implements View.OnClickListener {
 
                     tr.addView(criar_tv_nome(cursor.getString(cursor.getColumnIndex(KEY_NOME))));
                     tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA1)), 1, id_materia));
-                    tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA2)) , 2, id_materia));
-                    tr.addView(criar_tv_cinza( cursor.getString(cursor.getColumnIndex(KEY_PRENOTA3))));
+                    tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA2)), 2, id_materia));
+                    tr.addView(criar_tv_cinza(cursor.getString(cursor.getColumnIndex(KEY_PRENOTA3))));
                     tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA3)), 3, id_materia));
                     tr.addView(criar_tv_media_anual(cursor.getString(cursor.getColumnIndex(KEY_MA))));
-                    tr.addView(criar_tv_cinza( cursor.getString(cursor.getColumnIndex(KEY_PREPFV)) ) );
-                    tr.addView( criar_tv_colorido( cursor.getString(cursor.getColumnIndex(KEY_PFV)), 4, id_materia) );
+                    tr.addView(criar_tv_cinza(cursor.getString(cursor.getColumnIndex(KEY_PREPFV))));
+                    tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_PFV)), 4, id_materia));
 
                     tl.addView(tr);
                 }
@@ -120,7 +125,7 @@ public class Boletim extends Activity implements View.OnClickListener {
     public void onClick(View v) {
     }
 
-    public TextView criar_tv_nome(String text){
+    public TextView criar_tv_nome(String text) {
         TextView tv = new TextView(this);
         tv.setId(contador + 1);
         tv.setText(text);
@@ -130,12 +135,12 @@ public class Boletim extends Activity implements View.OnClickListener {
         return tv;
     }
 
-    public TextView criar_tv_media_anual(String text){
+    public TextView criar_tv_media_anual(String text) {
         TextView tv = new TextView(this);
         tv.setId(contador + 1);
         tv.setText(formatar(text));
 
-        if(Float.parseFloat(text) == 0)
+        if (Float.parseFloat(text) == 0)
             tv.setTextColor(Color.BLACK);
         else
             tv.setTextColor(Color.BLUE);
@@ -146,7 +151,7 @@ public class Boletim extends Activity implements View.OnClickListener {
     }
 
     // ---- TextView cinza - Usado para Est PFV e Est 3Tri.
-    public TextView criar_tv_cinza(String text){
+    public TextView criar_tv_cinza(String text) {
         TextView tv = new TextView(this);
         tv.setId(contador + 1);
         tv.setText(formatar(text));
@@ -157,18 +162,18 @@ public class Boletim extends Activity implements View.OnClickListener {
     }
 
     // ---- TextView Colorido - texto colorido para 1, 2 e 3 trimestres e PFV.
-    public TextView criar_tv_colorido(String text, int trimestre, int id_materia){
+    public TextView criar_tv_colorido(String text, int trimestre, int id_materia) {
         TextView tv = new TextView(this);
 
         // ---- Ver funcaoo para explicacao.
         tv.setId(aumentar_id(id_materia, trimestre));
         tv.setText(formatar(text));
 
-        if(Float.parseFloat(text) == 0)
+        if (Float.parseFloat(text) == 0)
             tv.setTextColor(Color.BLACK);
         else if (Float.parseFloat(text) < 5)
             tv.setTextColor(Color.RED);
-        else if (Float.parseFloat(text) < 5)
+        else if (Float.parseFloat(text) < 7)
             tv.setTextColor(Color.GREEN);
         else
             tv.setTextColor(Color.BLUE);
@@ -217,25 +222,18 @@ public class Boletim extends Activity implements View.OnClickListener {
         EasyTracker.getInstance(this).activityStop(this);
     }
 
-    public static String formatar(String text) {
-        float nota = Float.parseFloat(text);
-        DecimalFormat Formatacao = new DecimalFormat("0.00");
-        text = Formatacao.format(nota);
-        return text;
-    }
-
-    public int aumentar_id(int id_materia, int trimestre){
+    public int aumentar_id(int id_materia, int trimestre) {
         // ---- O id é determinado com o ID na tabela somado de 100 * trimestre.
         // ---- Na hora de checar qual é o trimestre, basta ler a função "descobrir_trimestre"
-        return id_materia + 100*trimestre;
+        return id_materia + 100 * trimestre;
     }
 
-    public int diminuir_id(int id){
-        return id - 100*(determinar_trimestre_pelo_id(id));
+    public int diminuir_id(int id) {
+        return id - 100 * (determinar_trimestre_pelo_id(id));
     }
 
-    public int determinar_trimestre_pelo_id(int id){
-        if(id > 400)
+    public int determinar_trimestre_pelo_id(int id) {
+        if (id > 400)
             return 4;
         else if (id > 300)
             return 3;

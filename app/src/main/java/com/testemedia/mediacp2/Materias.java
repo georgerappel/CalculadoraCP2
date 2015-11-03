@@ -83,7 +83,7 @@ public class Materias {
 	}
 
 	public Materias() {
-		this.nome = "Vazio";
+		this.nome = "";
 	}
 
 	public float Pre3Tri(float nota1, float nota2) {
