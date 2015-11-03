@@ -32,11 +32,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MenuTimetable"
-            android:label="@string/timetable"
-            android:screenOrientation="fullSensor" >
-        </activity>
-
         <activity android:name=".Proeja"
             android:label="@string/proeja"
             android:screenOrientation="portrait" >

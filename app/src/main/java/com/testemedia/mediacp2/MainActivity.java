@@ -107,7 +107,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 		// TODO Auto-generated method stub
 		Intent NotaMA = new Intent(this, CalcularMedias.class);
 		Intent Boletim = new Intent(this, menucad.class);
-        Intent Time = new Intent(this,MenuTimetable.class);
         Intent Proeja = new Intent(this,Proeja.class);
         Intent Calendario2 = new Intent(this, Calendario.class);
         Intent TimeTable = new Intent(this,TimeTableActivity.class);
