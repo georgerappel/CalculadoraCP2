@@ -19,7 +19,7 @@ import com.google.analytics.tracking.android.MapBuilder;
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
 	Button  botaoMA, botaoBoletim,
-		 botaoTimetable, botaoProeja, botaoCalendario;
+		 botaoTimetable, botaoProeja, botaoCalendario, botaoSobre;
     private ShareActionProvider mShareActionProvider;
     EasyTracker tracker;
 
@@ -35,13 +35,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         botaoTimetable = (Button) findViewById(R.id.timetable);
         botaoProeja = (Button) findViewById(R.id.botaoProeja);
         botaoCalendario = (Button) findViewById(R.id.botaoCalendario);
+        botaoSobre = (Button)findViewById(R.id.botaoSobre);
 
 		botaoMA.setOnClickListener(this);
 		botaoBoletim.setOnClickListener(this);
         botaoTimetable.setOnClickListener(this);
         botaoProeja.setOnClickListener(this);
         botaoCalendario.setOnClickListener(this);
-
+        botaoSobre.setOnClickListener(this);
 	}
 
     @Override
@@ -61,7 +62,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private void onShareAction(){
         // Create the share Intent
         String playStoreLink = "https://play.google.com/store/apps/details?id=" + getPackageName();
-        String yourShareText = " - Calcule e salve suas médias com Calculadora CP2! " + playStoreLink;
+        String yourShareText = " - Calcule e salve suas notas com Calculadora CP2! " + playStoreLink;
         Intent shareIntent = ShareCompat.IntentBuilder.from(this).setType("text/plain").setText(yourShareText).getIntent();
         // Set the share Intent
         if (mShareActionProvider != null) {
@@ -79,12 +80,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         "Informacoes", null).build());
                 Intent Info = new Intent(this, Info.class);
                 this.startActivity(Info);
-                return true;
-            case R.id.calendario:
-                tracker.send(MapBuilder.createEvent("Menubar", "calendario",
-                        "calendario", null).build());
-                Intent Calendario = new Intent(this, Calendario.class);
-                this.startActivity(Calendario);
                 return true;
             case R.id.share:
                 tracker.send(MapBuilder.createEvent("Menubar", "Compartilhar",
@@ -110,6 +105,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         Intent Proeja = new Intent(this,Proeja.class);
         Intent Calendario2 = new Intent(this, Calendario.class);
         Intent TimeTable = new Intent(this,TimeTableActivity.class);
+        Intent Info = new Intent(this, Info.class);
 
 		switch (v.getId()) {
 		case R.id.botaoMA:
@@ -123,7 +119,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
              break;
         case R.id.timetable:
             //Toast.makeText(this, "Em breve.", Toast.LENGTH_SHORT).show();
-           this.startActivity(TimeTable);
+            this.startActivity(TimeTable);
+            break;
+        case R.id.botaoSobre:
+            this.startActivity(Info);
             break;
         case R.id.botaoCalendario:
             this.startActivity(Calendario2);

@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -27,7 +27,7 @@
                 android:id="@+id/texto1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:text="@string/texto1"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -36,7 +36,7 @@
                 android:id="@+id/botaoMA"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="#ff000000"
                 android:text="@string/botaoMedias"
                 android:textColor="#ffffffff" />
@@ -45,7 +45,7 @@
                 android:id="@+id/botaoBoletim"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="22dp"
                 android:background="#ff000000"
                 android:text="@string/boletim"
                 android:textColor="#ffffffff" />
@@ -54,7 +54,7 @@
                 android:id="@+id/botaoCalendario"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="22dp"
                 android:background="#ff000000"
                 android:text="@string/calendario"
                 android:textColor="#ffffffff" />
@@ -63,7 +63,7 @@
             <Button
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="22dp"
                 android:text="Proeja"
                 android:id="@+id/botaoProeja"
                 android:layout_gravity="center_horizontal"
@@ -74,14 +74,21 @@
             <Button
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="22dp"
                 android:text="Timetable"
                 android:id="@+id/timetable"
-
-
                 android:visibility="visible"
+                android:layout_gravity="center_horizontal"
+                android:background="#ff000000"
+                android:textColor="#ffffffff" />
 
-
+            <Button
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="@string/informacoes"
+                android:id="@+id/botaoSobre"
+                android:visibility="visible"
                 android:layout_gravity="center_horizontal"
                 android:background="#ff000000"
                 android:textColor="#ffffffff" />
@@ -90,7 +97,7 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"
                 android:text="@string/tudoOuNada"
                 android:background="#66FFFFFF"

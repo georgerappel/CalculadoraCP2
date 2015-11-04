@@ -6,13 +6,4 @@
     <item android:id="@+id/informacoes"
         android:title="@string/informacoes"
         calculadoracp2:showAsAction="never"/>
-
-    <item android:id="@+id/calendario"
-        android:title="@string/calendario"
-        calculadoracp2:showAsAction="never"/>
-
-    <!-- <item
-         android:id="@+id/share"
-         android:title="Compartilhar :)"
-         calculadoracp2:showAsAction="never" /> -->
  </menu>
