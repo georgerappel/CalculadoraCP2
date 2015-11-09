@@ -26,6 +26,8 @@ public class Timetable {
     public String getHorario(){return horario;}
     public String getMateria(){return materia;}
     public int getLabelSemana(){return labelSemana;}
+    public String getId(){return Integer.toString(id);
+    }
 
     public void setProfessor(String professor){this.professor = professor;}
     public void setMateria(String materia){this.materia = materia;}

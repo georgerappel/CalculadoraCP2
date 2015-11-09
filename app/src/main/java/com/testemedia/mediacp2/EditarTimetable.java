@@ -1,52 +1,47 @@
 package com.testemedia.mediacp2;
 
-import android.annotation.TargetApi;
-import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.MapBuilder;
-
 /**
- * Created by Lucas  Braga and George Rappel on 10/07/2015.
+ * Created by Lucas on 02/11/2015.
  */
-public class AddTimetable extends Activity implements View.OnClickListener {
-
+public class EditarTimetable extends Activity implements View.OnClickListener {
     EditText materia, professor;
     TimePicker timePicker;
     Button salvar, cancelar;
     SqlTimetable db = new SqlTimetable(this);
-    static int diaDaSemana;
-
+    static int diaDaSemana, id;
+    static String mat, prof, hr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_timetable);
 
+        if(getIntent().getExtras().get("professor") != null) {
+            prof = getIntent().getExtras().getString("professor");
+        }
+        if(getIntent().getExtras().get("horario") != null){
+            hr = getIntent().getExtras().getString("horario");
+        }
+
+        if(getIntent().getExtras().get("materia") != null){
+            mat = getIntent().getExtras().getString("materia");
+        }
+
         if(getIntent().getExtras().get("dia") != null){
             diaDaSemana = getIntent().getExtras().getInt("dia");
-            Log.e("AddTimetable", "Botou dia " + diaDaSemana);
-        } else {
-            // Não tem dia da semana? Jogar um erro? Toast + finish()?
-            diaDaSemana = -1;
+        }
+
+        if(getIntent().getExtras().get("id") != null){
+            id = getIntent().getExtras().getInt("id");
         }
 
         materia = (EditText) findViewById(R.id.adcmateria);
@@ -56,6 +51,11 @@ public class AddTimetable extends Activity implements View.OnClickListener {
         cancelar = (Button)findViewById(R.id.cancelbutton);
         salvar.setOnClickListener(this);
         cancelar.setOnClickListener(this);
+
+        materia.setText(mat);
+        professor.setText(prof);
+        timePicker.setCurrentHour(Integer.parseInt(hr.substring(0, 1)));
+        timePicker.setCurrentMinute(Integer.parseInt(hr.substring(3,4)));
 
     }
 
@@ -70,16 +70,13 @@ public class AddTimetable extends Activity implements View.OnClickListener {
                 if(hora.length() == 1)
                     hora = "0" + hora;
                 String horario = hora + ":" + minutos;
-                if(professor.getText().toString().length() == 0 || materia.getText().toString().length() == 0 ) {
+                if(professor.getTextSize() == 0 || materia.getTextSize() == 0 ) {
                     Toast.makeText(getBaseContext(), "Preencha todos os campos.", Toast.LENGTH_SHORT).show();
                 } else {
                     Timetable timetable = new Timetable(horario, professor.getText().toString(), materia.getText().toString(), diaDaSemana);
-                    db.addMateria(timetable);
-                    Toast.makeText(getBaseContext(), "Materia adicionada com sucesso!", Toast.LENGTH_SHORT).show();
-                    //Intent refresh = new Intent(this, TimeTableActivity.class);
-                    //this.startActivity(refresh);
+                    db.updateMateria(timetable,id);
+                    Toast.makeText(getBaseContext(), "Materia atualizada com sucesso!", Toast.LENGTH_SHORT).show();
                     finish();
-                    db.close();
                 }
                 break;
             case R.id.cancelbutton:
@@ -91,3 +88,4 @@ public class AddTimetable extends Activity implements View.OnClickListener {
 
     }
 }
+

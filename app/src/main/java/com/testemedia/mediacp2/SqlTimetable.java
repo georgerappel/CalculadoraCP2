@@ -75,12 +75,13 @@ public class SqlTimetable extends SQLiteOpenHelper {
     }
 
 
-    public void updateMateria(Timetable timetable) {
+    public void updateMateria(Timetable timetable, int id) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         // this is a key value pair holder used by android's SQLite functions
         ContentValues values = new ContentValues();
+        values.put(_ID, id);
         values.put(KEY_HORARIO, timetable.getHorario());
         values.put(KEY_PROFESSOR, timetable.getProfessor());
         values.put(KEY_LABEL_DIA, timetable.getLabelSemana());
@@ -99,8 +100,8 @@ public class SqlTimetable extends SQLiteOpenHelper {
 
         // Checa se o nome nao e nulo nem esta vazio.
         if (timetable.getMateria() != null && timetable.getMateria() != "")
-            db.delete(TABLE_LISTA, "Nome = ?",
-                    new String[] { timetable.getMateria() }); // args
+            db.delete(TABLE_LISTA, "ID = ?",
+                    new String[] { timetable.getId() }); // args
 
         // Fechando a DB
         db.close();
@@ -134,5 +135,27 @@ public class SqlTimetable extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndex(KEY_LABEL_DIA)));
         return timetable;
     }
+
+    /*public Timetable buscarId(int ID) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Faz uma busca retornando apenas as colunas listadas onde
+        // a coluna _ID tenha o valor passado de parametro.
+        Cursor cursor = db.query(TABLE_LISTA, new String[] { _ID, KEY_LABEL_DIA,
+                        KEY_HORARIO, KEY_MATERIA, KEY_PROFESSOR}, _ID + "=" + ID,
+                null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            Timetable materia = new Timetable();
+            cursor.close();
+            db.close();
+            return materia;
+        } else {
+            Materias materia = new Materias();
+            cursor.close();
+            db.close();
+            return materia;
+        }
+    }*/
 
 }
