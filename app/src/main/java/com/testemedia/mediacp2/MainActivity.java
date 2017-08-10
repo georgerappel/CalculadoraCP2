@@ -5,18 +5,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
+import com.testemedia.mediacp2.timetable.TimeTableActivity;
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 	Button  botaoMA, botaoBoletim,
 		 botaoTimetable, botaoProeja, botaoCalendario, botaoSobre;
@@ -75,12 +75,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         // Handle presses on the action bar items
         EasyTracker tracker = EasyTracker.getInstance(MainActivity.this);
         switch (item.getItemId()) {
-            case R.id.informacoes:
-                tracker.send(MapBuilder.createEvent("Menubar", "Informacoes",
-                        "Informacoes", null).build());
-                Intent Info = new Intent(this, Info.class);
-                this.startActivity(Info);
-                return true;
             case R.id.share:
                 tracker.send(MapBuilder.createEvent("Menubar", "Compartilhar",
                         "Compartilhar", null).build());
@@ -101,8 +95,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		Intent NotaMA = new Intent(this, CalcularMedias.class);
-		Intent Boletim = new Intent(this, menucad.class);
-        Intent Proeja = new Intent(this,Proeja.class);
+        Intent Proeja = new Intent(this, com.testemedia.mediacp2.proeja.Proeja.class);
         Intent Calendario2 = new Intent(this, Calendario.class);
         Intent TimeTable = new Intent(this,TimeTableActivity.class);
         Intent Info = new Intent(this, Info.class);
@@ -112,13 +105,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 			this.startActivity(NotaMA);
 			break;
 		case R.id.botaoBoletim:
-			this.startActivity(Boletim);
+            Intent acao = new Intent(this, com.testemedia.mediacp2.boletim.Boletim.class);
+            tracker.send(MapBuilder.createEvent("Botoes", "Boletim-Geral", "Visualizar Boletim", null).build());
+            this.startActivity(acao);
 			break;
         case R.id.botaoProeja:
              this.startActivity(Proeja);
              break;
         case R.id.timetable:
-            //Toast.makeText(this, "Em breve.", Toast.LENGTH_SHORT).show();
             this.startActivity(TimeTable);
             break;
         case R.id.botaoSobre:

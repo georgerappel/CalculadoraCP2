@@ -12,6 +12,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-3567961859053683/1325905450"
+            android:layout_weight="0.80"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"></com.google.android.gms.ads.AdView>
+
         <TextView
             android:id="@+id/topoPFV"
             android:layout_width="match_parent"

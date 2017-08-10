@@ -1,8 +1,6 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:2:1
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 	package
 		ADDED from AndroidManifest.xml:3:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -13,6 +11,8 @@ ADDED from AndroidManifest.xml:2:1
 		ADDED from AndroidManifest.xml:4:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
 uses-sdk
 ADDED from AndroidManifest.xml:7:5
 MERGED from com.android.support:support-v4:21.0.3:15:5
@@ -58,10 +58,10 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 meta-data#com.google.android.gms.version
 ADDED from AndroidManifest.xml:19:9
 MERGED from com.google.android.gms:play-services:6.5.87:21:9
-	android:name
-		ADDED from AndroidManifest.xml:20:13
 	android:value
 		ADDED from AndroidManifest.xml:21:13
+	android:name
+		ADDED from AndroidManifest.xml:20:13
 activity#com.testemedia.mediacp2.MainActivity
 ADDED from AndroidManifest.xml:23:9
 	android:screenOrientation
@@ -82,7 +82,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:31:17
 	android:name
 		ADDED from AndroidManifest.xml:31:27
-activity#com.testemedia.mediacp2.MenuTimetable
+activity#com.testemedia.mediacp2.PROEJA.Proeja
 ADDED from AndroidManifest.xml:35:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:37:13
@@ -90,7 +90,7 @@ ADDED from AndroidManifest.xml:35:9
 		ADDED from AndroidManifest.xml:36:13
 	android:name
 		ADDED from AndroidManifest.xml:35:19
-activity#com.testemedia.mediacp2.Proeja
+activity#com.testemedia.mediacp2.PROEJA.Nota2cert
 ADDED from AndroidManifest.xml:40:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:42:13
@@ -98,137 +98,127 @@ ADDED from AndroidManifest.xml:40:9
 		ADDED from AndroidManifest.xml:41:13
 	android:name
 		ADDED from AndroidManifest.xml:40:19
-activity#com.testemedia.mediacp2.PROEJA.Nota2cert
-ADDED from AndroidManifest.xml:45:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:47:13
-	android:label
-		ADDED from AndroidManifest.xml:46:13
-	android:name
-		ADDED from AndroidManifest.xml:45:19
 activity#com.testemedia.mediacp2.PROEJA.ProejaAnual
-ADDED from AndroidManifest.xml:49:9
+ADDED from AndroidManifest.xml:44:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:51:13
+		ADDED from AndroidManifest.xml:46:13
 	android:label
-		ADDED from AndroidManifest.xml:50:13
+		ADDED from AndroidManifest.xml:45:13
 	android:name
-		ADDED from AndroidManifest.xml:49:19
+		ADDED from AndroidManifest.xml:44:19
 activity#com.testemedia.mediacp2.PROEJA.ProejaFinal
-ADDED from AndroidManifest.xml:53:9
+ADDED from AndroidManifest.xml:48:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:55:13
+		ADDED from AndroidManifest.xml:50:13
 	android:label
-		ADDED from AndroidManifest.xml:54:13
+		ADDED from AndroidManifest.xml:49:13
 	android:name
-		ADDED from AndroidManifest.xml:53:19
+		ADDED from AndroidManifest.xml:48:19
 activity#com.testemedia.mediacp2.PROEJA.ProejaPFV
-ADDED from AndroidManifest.xml:57:9
+ADDED from AndroidManifest.xml:52:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:59:13
+		ADDED from AndroidManifest.xml:54:13
 	android:label
-		ADDED from AndroidManifest.xml:58:13
+		ADDED from AndroidManifest.xml:53:13
 	android:name
-		ADDED from AndroidManifest.xml:57:19
+		ADDED from AndroidManifest.xml:52:19
 activity#com.testemedia.mediacp2.PROEJA.ProejaSobre
-ADDED from AndroidManifest.xml:61:9
+ADDED from AndroidManifest.xml:56:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:58:13
+	android:label
+		ADDED from AndroidManifest.xml:57:13
+	android:name
+		ADDED from AndroidManifest.xml:56:19
+activity#com.testemedia.mediacp2.CalcularMedias
+ADDED from AndroidManifest.xml:60:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:63:13
 	android:label
 		ADDED from AndroidManifest.xml:62:13
 	android:name
-		ADDED from AndroidManifest.xml:61:19
-activity#com.testemedia.mediacp2.nota3tri
-ADDED from AndroidManifest.xml:69:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:72:13
-	android:label
-		ADDED from AndroidManifest.xml:71:13
-	android:name
-		ADDED from AndroidManifest.xml:70:13
-activity#com.testemedia.mediacp2.NotaMA
-ADDED from AndroidManifest.xml:74:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:77:13
-	android:label
-		ADDED from AndroidManifest.xml:76:13
-	android:name
-		ADDED from AndroidManifest.xml:75:13
-activity#com.testemedia.mediacp2.NotaPFV
-ADDED from AndroidManifest.xml:79:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:82:13
-	android:label
-		ADDED from AndroidManifest.xml:81:13
-	android:name
-		ADDED from AndroidManifest.xml:80:13
+		ADDED from AndroidManifest.xml:61:13
 activity#com.testemedia.mediacp2.Info
-ADDED from AndroidManifest.xml:84:9
+ADDED from AndroidManifest.xml:65:9
 	android:screenOrientation
+		ADDED from AndroidManifest.xml:68:13
+	android:label
+		ADDED from AndroidManifest.xml:67:13
+	android:name
+		ADDED from AndroidManifest.xml:66:13
+activity#com.testemedia.mediacp2.BOLETIM.Cadastrar
+ADDED from AndroidManifest.xml:70:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:73:13
+	android:label
+		ADDED from AndroidManifest.xml:72:13
+	android:name
+		ADDED from AndroidManifest.xml:71:13
+activity#com.testemedia.mediacp2.BOLETIM.Boletim
+ADDED from AndroidManifest.xml:75:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:78:13
+	android:label
+		ADDED from AndroidManifest.xml:77:13
+	android:name
+		ADDED from AndroidManifest.xml:76:13
+activity#com.testemedia.mediacp2.BOLETIM.MenuBoletim
+ADDED from AndroidManifest.xml:80:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:83:13
+	android:label
+		ADDED from AndroidManifest.xml:82:13
+	android:name
+		ADDED from AndroidManifest.xml:81:13
+activity#com.testemedia.mediacp2.BOLETIM.Instrucoes
+ADDED from AndroidManifest.xml:85:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:88:13
+	android:label
 		ADDED from AndroidManifest.xml:87:13
-	android:label
+	android:name
 		ADDED from AndroidManifest.xml:86:13
-	android:name
-		ADDED from AndroidManifest.xml:85:13
-activity#com.testemedia.mediacp2.Cadastrar
-ADDED from AndroidManifest.xml:89:9
+activity#com.testemedia.mediacp2.BOLETIM.EditarLista
+ADDED from AndroidManifest.xml:90:9
 	android:screenOrientation
+		ADDED from AndroidManifest.xml:93:13
+	android:label
 		ADDED from AndroidManifest.xml:92:13
-	android:label
+	android:name
 		ADDED from AndroidManifest.xml:91:13
-	android:name
-		ADDED from AndroidManifest.xml:90:13
-activity#com.testemedia.mediacp2.Boletim
-ADDED from AndroidManifest.xml:94:9
+activity#com.testemedia.mediacp2.BOLETIM.EditarMateria
+ADDED from AndroidManifest.xml:95:9
 	android:screenOrientation
+		ADDED from AndroidManifest.xml:98:13
+	android:label
 		ADDED from AndroidManifest.xml:97:13
-	android:label
+	android:name
 		ADDED from AndroidManifest.xml:96:13
-	android:name
-		ADDED from AndroidManifest.xml:95:13
-activity#com.testemedia.mediacp2.menucad
-ADDED from AndroidManifest.xml:99:9
+activity#com.testemedia.mediacp2.TIMETABLE.TimeTableActivity
+ADDED from AndroidManifest.xml:101:9
 	android:screenOrientation
+		ADDED from AndroidManifest.xml:103:13
+	android:name
 		ADDED from AndroidManifest.xml:102:13
-	android:label
-		ADDED from AndroidManifest.xml:101:13
+activity#com.testemedia.mediacp2.TIMETABLE.AddTimetable
+ADDED from AndroidManifest.xml:107:9
 	android:name
-		ADDED from AndroidManifest.xml:100:13
-activity#com.testemedia.mediacp2.Instrucoes
-ADDED from AndroidManifest.xml:104:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:107:13
-	android:label
-		ADDED from AndroidManifest.xml:106:13
+		ADDED from AndroidManifest.xml:108:13
+activity#com.testemedia.mediacp2.TIMETABLE.EditarTimetable
+ADDED from AndroidManifest.xml:112:9
 	android:name
-		ADDED from AndroidManifest.xml:105:13
-activity#com.testemedia.mediacp2.EditarLista
-ADDED from AndroidManifest.xml:109:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:112:13
-	android:label
-		ADDED from AndroidManifest.xml:111:13
-	android:name
-		ADDED from AndroidManifest.xml:110:13
-activity#com.testemedia.mediacp2.EditarMateria
-ADDED from AndroidManifest.xml:114:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:117:13
-	android:label
-		ADDED from AndroidManifest.xml:116:13
-	android:name
-		ADDED from AndroidManifest.xml:115:13
+		ADDED from AndroidManifest.xml:113:13
 activity#com.testemedia.mediacp2.Calendario
-ADDED from AndroidManifest.xml:119:9
+ADDED from AndroidManifest.xml:117:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:122:13
-	android:label
-		ADDED from AndroidManifest.xml:121:13
-	android:name
 		ADDED from AndroidManifest.xml:120:13
-activity#com.google.android.gms.ads.AdActivity
-ADDED from AndroidManifest.xml:124:9
-	android:configChanges
-		ADDED from AndroidManifest.xml:126:13
+	android:label
+		ADDED from AndroidManifest.xml:119:13
 	android:name
-		ADDED from AndroidManifest.xml:125:13
+		ADDED from AndroidManifest.xml:118:13
+activity#com.google.android.gms.ads.AdActivity
+ADDED from AndroidManifest.xml:122:9
+	android:configChanges
+		ADDED from AndroidManifest.xml:124:13
+	android:name
+		ADDED from AndroidManifest.xml:123:13

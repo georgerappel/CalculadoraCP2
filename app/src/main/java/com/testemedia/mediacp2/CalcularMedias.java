@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.text.DecimalFormat;
 
@@ -24,14 +25,21 @@ public class CalcularMedias extends Activity implements View.OnClickListener {
     EditText nota1Tri, nota2Tri, nota3Tri, resultado3Tri, resultadoMA, resultadoPFV;
     Button terceiro, ma;
     TextView textoResultado;
+    final String ID = "ca-app-pub-3567961859053683/7232838256";
+    private InterstitialAd interstitial;
+    boolean mostrouInterstitial = false;
+    int clickCount = 0;
+    int clickMinAd = 2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.medias_layout);
 
-        AdView adView = (AdView) this.findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        // Criar o anncio intersticial.
+        interstitial = new InterstitialAd(this);
+        interstitial.setAdUnitId(ID);
+        AdRequest adRequest2 = new AdRequest.Builder().build();
+        interstitial.loadAd(adRequest2);
 
         nota1Tri = (EditText) findViewById(R.id.nota1Tri);
         nota2Tri = (EditText) findViewById(R.id.nota2Tri);
@@ -63,6 +71,14 @@ public class CalcularMedias extends Activity implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.terceiro:
+                clickCount++;
+                if(clickCount == clickMinAd){
+                    if(interstitial.isLoaded()) {
+                        interstitial.show();
+                    } else {
+                        clickCount--;
+                    }
+                }
                 tracker.send(MapBuilder.createEvent("Botoes", "Clique", "Terceiro", null).build());
                 if ((nota1Tri.getText().toString().length() == 0)
                         || (nota2Tri.getText().toString().length() == 0)) {
@@ -95,6 +111,14 @@ public class CalcularMedias extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.ma:
+                clickCount++;
+                if(clickCount == clickMinAd){
+                    if(interstitial.isLoaded()) {
+                        interstitial.show();
+                    } else {
+                        clickCount--;
+                    }
+                }
                 tracker.send(MapBuilder.createEvent("Botoes", "Clique", "Calculo M.A.", null).build());
                 if ((nota1Tri.getText().toString().length() == 0)
                         || (nota2Tri.getText().toString().length() == 0)

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.testemedia.mediacp2"
-    android:versionCode="22"
-    android:versionName="1.27" >
-
-    <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="20" />
+    android:versionCode="26"
+    android:versionName="1.3.3" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:allowBackup="true"
@@ -32,28 +29,28 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Proeja"
+        <activity android:name=".proeja.Proeja"
             android:label="@string/proeja"
             android:screenOrientation="portrait" >
         </activity>
 
-        <activity android:name=".PROEJA.Nota2cert"
+        <activity android:name=".proeja.Nota2cert"
             android:label="@string/proeja"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".PROEJA.ProejaAnual"
+        <activity android:name=".proeja.ProejaAnual"
             android:label="@string/proeja"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".PROEJA.ProejaFinal"
+        <activity android:name=".proeja.ProejaFinal"
             android:label="@string/proeja"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".PROEJA.ProejaPFV"
+        <activity android:name=".proeja.ProejaPFV"
             android:label="@string/proeja"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".PROEJA.ProejaSobre"
+        <activity android:name=".proeja.ProejaSobre"
             android:label="@string/proeja"
             android:screenOrientation="portrait" >
         </activity>
@@ -68,44 +65,44 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".Cadastrar"
+            android:name=".boletim.Cadastrar"
             android:label="@string/cadastrar"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".Boletim"
+            android:name=".boletim.Boletim"
             android:label="@string/boletim"
-            android:screenOrientation="sensorLandscape" >
+            android:screenOrientation="fullSensor" >
         </activity>
         <activity
-            android:name=".menucad"
-            android:label="Menu Boletim"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".Instrucoes"
+            android:name=".boletim.Instrucoes"
             android:label="Como Utilizar"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".EditarLista"
+            android:name=".boletim.EditarLista"
             android:label="Editar/Remover Matérias"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".EditarMateria"
+            android:name=".boletim.EditarMateria"
             android:label="Alterar Matéria"
             android:screenOrientation="portrait" >
         </activity>
 
         <activity
-            android:name=".TimeTableActivity"
+            android:name=".timetable.TimeTableActivity"
             android:screenOrientation="portrait" >
 
         </activity>
 
         <activity
-            android:name=".AddTimetable">
+            android:name=".timetable.AddTimetable">
+
+        </activity>
+
+        <activity
+            android:name=".timetable.EditarTimetable">
 
         </activity>
 

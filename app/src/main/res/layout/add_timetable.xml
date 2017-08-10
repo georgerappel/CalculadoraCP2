@@ -2,35 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/addtimetable"
     android:background="@drawable/bgall">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/no"
+        android:background="@drawable/close"
+        android:id="@+id/cancelbutton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/cancelbutton" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/good_or_tick"
+        android:background="@drawable/check"
+        android:id="@+id/savebutton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/savebutton" />
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/adcmateria"
         android:hint="Materia"
+        android:padding="12dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:padding="12dp"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -62,7 +64,6 @@
         android:layout_centerHorizontal="true"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"/>
-
 
 
 </RelativeLayout>

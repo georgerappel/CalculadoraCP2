@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:calculadoracp2="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/add_materia_opt"
+        android:title="Adicionar Matéria"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_add_white_24dp"
+        calculadoracp2:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/edit_materia_opt"
+        android:title="Editar Matéria"
+        android:icon="@drawable/ic_edit_white_24dp"
+        android:orderInCategory="1"
+        calculadoracp2:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/ajuda_opt"
+        android:title="Como Usar"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_help_outline_white_24dp"
+        calculadoracp2:showAsAction="ifRoom" />
+
+</menu>

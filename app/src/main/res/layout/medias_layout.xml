@@ -14,20 +14,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            ads:adSize="SMART_BANNER"
-            ads:adUnitId="ca-app-pub-3567961859053683/1325905450"></com.google.android.gms.ads.AdView>
-
         <TextView
             android:id="@+id/topo3tri"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:textSize="25sp"
             android:text="@string/botaoMedias"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -36,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <TextView
@@ -51,6 +43,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:contentDescription="Campo nota primeiro trimestre"
                 android:gravity="center"
                 android:ems="10"
                 android:inputType="numberDecimal">
@@ -78,6 +71,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:contentDescription=" Campo Nota segundo trimestre"
                 android:gravity="center"
                 android:ems="10"
                 android:inputType="numberDecimal" />
@@ -102,6 +96,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:contentDescription="Campo Nota terceiro trimestre"
                 android:gravity="center"
                 android:ems="10"
                 android:inputType="numberDecimal" />
@@ -176,7 +171,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:contentDescription="Nota necessária terceiro trimestre"/>
 
             <EditText
                 android:id="@+id/resultadoMA"
@@ -185,7 +181,8 @@
                 android:layout_marginLeft="16dp"
                 android:gravity="center"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:contentDescription="Média anual calculada" />
 
             <EditText
                 android:id="@+id/resultadoPFV"
@@ -194,7 +191,8 @@
                 android:layout_marginLeft="16dp"
                 android:gravity="center"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:contentDescription="Nota calculada necessária na Prova Final" />
 
         </LinearLayout>
 

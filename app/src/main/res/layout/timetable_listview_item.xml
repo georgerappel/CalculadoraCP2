@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#feffef"
+    android:background="#b6ffe5"
     android:weightSum="4"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -15,13 +15,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Horario"
-        android:layout_weight="1"
+        android:layout_weight="1.34"
         android:textSize="24sp" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginLeft="15dp"
-        android:layout_weight="3"
+        android:layout_weight="2.41"
         android:layout_width="0dp"
         android:layout_height="wrap_content">
 
@@ -31,7 +31,6 @@
             android:layout_height="wrap_content"
             android:text="Materia"
             android:textSize="24sp"/>
-
 
         <TextView
             android:id="@+id/professor"

@@ -1,31 +1,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bgall" >
-
-    <ImageButton
-        android:id="@+id/calendariopadrao"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="fill_parent"
-        android:background="#45FFFA"
-        android:contentDescription="@string/calendario"
-        android:src="@drawable/calendariobotaogeral" />
-
-    <ImageButton
-        android:id="@+id/calendarioTerceirao"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="fill_parent"
-        android:background="#45FFFA"
-        android:contentDescription="@string/calendario"
-        android:src="@drawable/calendariobotaogeral2" />
+    android:background="@drawable/bgall"
+    android:orientation="vertical">
 
     <com.matabii.dev.scaleimageview.ScaleImageView
         android:id="@+id/calendario"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/calend"
-        android:visibility="gone" />
+        android:src="@drawable/anosfinais"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/linear_botoes_calendario"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <!--Button
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:text="Anos Iniciais do Ensino Fundamental"
+            android:id="@+id/calendario_pedrinho"
+            android:layout_gravity="center_horizontal" />-->
+
+        <Button
+            android:layout_marginTop="22dp"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:text="Ensino Médio e Ensino Fundamental(Anos Finais)"
+            android:id="@+id/calendario_medio"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_marginTop="22dp"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:text="PROEJA / Ensino Fundamental(Anos Iniciais) / Ensino Infantil"
+            android:id="@+id/calendario_proeja"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_marginTop="22dp"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:text="Atualizado em 06/Abril/2017"
+            android:textColor="#FF0000"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+    </LinearLayout>
 
 </LinearLayout>

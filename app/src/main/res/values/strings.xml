@@ -4,7 +4,7 @@
     <string name="app_name">Calculadora CP2</string>
     <string name="hello_world">Hello world!</string>
     <string name="informacoes">Informações</string>
-    <string name="texto1">Bem-vindo à Calculadora!</string>
+    <string name="texto1">Aproveite a Calculadora!</string>
     <string name="botao3tri">Nota mín. do 3° Trimestre</string>
     <string name="botaoPFV">Nota mínima para PFV</string>
     <string name="botaoMA">Média Anual</string>
@@ -22,8 +22,8 @@
     <string name="desenvolvedores">Desenvolvedores:</string>
     <string name="contato">Contato, Sugestões e Erros:</string>
     <string name="email">contato.rbapps@gmail.com</string>
-    <string name="texto">O aplicativo foi desenvolvido por um dois ex-alunos do Colégio Pedro II, ambos cursando técnico de
-        informática no CEFET/RJ, e tem o objetivo de auxiliar os alunos nos cálculos de médias e notas.</string>
+    <string name="texto">O aplicativo foi desenvolvido por dois ex-alunos do Colégio Pedro II, que cursaram técnico em
+        informática no CEFET/RJ, tendo como objetivo auxiliar os alunos nos cálculos de médias, notas e na organização de tarefas.</string>
     <string name="contato1">Contato, erros ou sugestões:</string>
     <string name="textoResultado"></string>
     <string name="textoResultado1"></string>
@@ -48,7 +48,10 @@
     <string name="quarta">Quarta</string>
     <string name="quinta">Quinta</string>
     <string name="sexta">Sexta</string>
-    <string name="sabado">Sabado</string>
-    <string name="domingo">Domingo</string>
+    <string name="sabado">Sabado I</string>
+    <string name="sabado2">Sabado II</string>
+    <string name="menu_delete">Excluir</string>
+    <string name="menu_edit">Editar</string>
+
 	
 </resources>
