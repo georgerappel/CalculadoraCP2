@@ -1,12 +1,12 @@
 package com.testemedia.mediacp2.boletim;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.testemedia.mediacp2.R;
 
-public class Instrucoes extends Activity {
+public class Instrucoes extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

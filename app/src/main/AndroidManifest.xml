@@ -19,7 +19,6 @@
 
         <activity
             android:name="com.testemedia.mediacp2.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -35,23 +34,23 @@
         </activity>
 
         <activity android:name=".proeja.Nota2cert"
-            android:label="@string/proeja"
+            android:label="PROEJA - 2ª Cert."
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name=".proeja.ProejaAnual"
-            android:label="@string/proeja"
+            android:label="PROEJA - Média Anual"
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name=".proeja.ProejaFinal"
-            android:label="@string/proeja"
+            android:label="PROEJA - Média Final"
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name=".proeja.ProejaPFV"
-            android:label="@string/proeja"
+            android:label="PROEJA - PFV"
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name=".proeja.ProejaSobre"
-            android:label="@string/proeja"
+            android:label="PROEJA - Ajuda"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -81,18 +80,19 @@
         </activity>
         <activity
             android:name=".boletim.EditarLista"
-            android:label="Editar/Remover Matérias"
+            android:label="Gerenciar Disciplinas"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".boletim.EditarMateria"
-            android:label="Alterar Matéria"
+            android:label="@string/editarMat"
             android:screenOrientation="portrait" >
         </activity>
 
         <activity
             android:name=".timetable.TimeTableActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:label="@string/gradehoraria">
 
         </activity>
 
@@ -108,7 +108,7 @@
 
         <activity
             android:name=".Calendario"
-            android:label="Calendario"
+            android:label="Calendário"
             android:screenOrientation="fullSensor" >
         </activity>
         <activity

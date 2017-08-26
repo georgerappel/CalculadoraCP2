@@ -2,5 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:calculadoracp2="http://schemas.android.com/apk/res-auto">
 
-    <!-- Settings, should always be in the overflow -->
- </menu>
+    <item
+        android:id="@+id/share"
+        android:title="Compartilhar!"
+        android:orderInCategory="1"
+        calculadoracp2:showAsAction="always"
+        android:actionProviderClass="android.widget.ShareActionProvider" />
+</menu>

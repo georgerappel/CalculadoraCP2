@@ -18,9 +18,9 @@
         android:layout_width="fill_parent"
         android:layout_height="60dip"
         android:layout_gravity="bottom"
-        android:background="#FF494949"
+        android:background="@color/primary_dark"
         android:gravity="center"
-        android:textColor="#FFFFFFFF"
+        android:textColor="@color/cinza_claro"
         android:text="@string/footer"
         android:textSize="18sp" />
 

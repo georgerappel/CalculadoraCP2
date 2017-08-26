@@ -29,15 +29,19 @@
         <Button
             android:layout_marginTop="22dp"
             android:layout_width="290dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:text="Ensino Médio e Ensino Fundamental(Anos Finais)"
             android:id="@+id/calendario_medio"
+            android:background="@drawable/button_round_gray"
+            android:textColor="@color/primary_dark"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_marginTop="22dp"
             android:layout_width="290dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round_gray"
+            android:textColor="@color/primary_dark"
             android:text="PROEJA / Ensino Fundamental(Anos Iniciais) / Ensino Infantil"
             android:id="@+id/calendario_proeja"
             android:layout_gravity="center_horizontal" />

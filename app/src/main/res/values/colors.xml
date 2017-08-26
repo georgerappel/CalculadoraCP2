@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#153674</color>
+    <color name="azul_meio">#08265C</color>
+    <color name="primary_dark">#03183E</color>
+    <color name="accent">#1A65BB</color>
+    <color name="cinza_claro">#E6E6E6</color>
+    <color name="azul_claro">#1A65BB</color>
+    <color name="azul">#153674</color>
+</resources>

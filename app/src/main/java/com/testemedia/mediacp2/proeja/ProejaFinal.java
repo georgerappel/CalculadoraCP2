@@ -1,8 +1,8 @@
 package com.testemedia.mediacp2.proeja;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -20,7 +20,7 @@ import java.text.DecimalFormat;
 /**
  * Created by Lucas on 03/02/2015.
  */
-public class ProejaFinal extends Activity implements View.OnClickListener {
+public class ProejaFinal extends AppCompatActivity implements View.OnClickListener {
     EditText mediaAnual, notaPFV, resultado;
     Button calcular;
     private InterstitialAd interstitial;

@@ -50,12 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Inflate the menu items for use in the action bar
         getMenuInflater().inflate(R.menu.main_activity_actions, menu);
         // Fetch and store ShareActionProvider
-        if(Build.VERSION.SDK_INT >= 14) {
-            MenuItem menuItem = menu.findItem(R.id.share);
-            mShareActionProvider = new ShareActionProvider(this);
-            onShareAction();
-            MenuItemCompat.setActionProvider(menuItem, mShareActionProvider);
-        }
+        MenuItem menuItem = menu.findItem(R.id.share);
+        mShareActionProvider = new ShareActionProvider(this);
+        onShareAction();
+        MenuItemCompat.setActionProvider(menuItem, mShareActionProvider);
+
         return super.onCreateOptionsMenu(menu);
     }
 

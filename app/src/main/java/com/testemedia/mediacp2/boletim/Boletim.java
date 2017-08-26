@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.Menu;
@@ -116,7 +118,7 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
         TextView tv = new TextView(this);
         tv.setId(contador + 1);
         tv.setText(text);
-        tv.setTextColor(Color.BLACK);
+        tv.setTextColor(ResourcesCompat.getColor(getResources(), R.color.primary_dark, null));
         tv.setGravity(Gravity.CENTER);
         tv.setTextSize(TAM_LETRA);
         return tv;

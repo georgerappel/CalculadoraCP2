@@ -1,9 +1,9 @@
 package com.testemedia.mediacp2.boletim;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -20,9 +20,7 @@ import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
 import com.testemedia.mediacp2.R;
 
-import java.util.ArrayList;
-
-public class EditarLista extends Activity {
+public class EditarLista extends AppCompatActivity {
 
     ListView lista;
     private String[] materias;
@@ -45,7 +43,6 @@ public class EditarLista extends Activity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-
         if (v.getId() == R.id.lista) {
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
             menu.setHeaderTitle(materias[info.position]);
@@ -115,7 +112,6 @@ public class EditarLista extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        this.onCreate(null);
     }
 
 

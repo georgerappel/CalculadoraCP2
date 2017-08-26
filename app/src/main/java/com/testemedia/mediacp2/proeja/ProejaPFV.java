@@ -1,8 +1,8 @@
 package com.testemedia.mediacp2.proeja;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
 /**
  * Created by Lucas on 03/02/2015.
  */
-public class ProejaPFV extends Activity implements View.OnClickListener {
+public class ProejaPFV extends AppCompatActivity implements View.OnClickListener {
 
     EditText nota1cert, nota2cert, resultado;
     Button calcular;
@@ -36,17 +36,12 @@ public class ProejaPFV extends Activity implements View.OnClickListener {
         resultado = (EditText)findViewById(R.id.pfvresultado);
         calcular = (Button)findViewById(R.id.pfvcalcular);
 
-
         calcular.setOnClickListener(this);
-
-
     }
 
     @Override
     public void onClick(View v) {
-
-        // Esconde o teclado ao clicar no bot�o caso o teclado ainda esteja
-        // aberto.
+        // Esconde o teclado ao clicar no bot�o caso o teclado ainda esteja aberto.
         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(
                 getCurrentFocus().getWindowToken(),
@@ -57,8 +52,7 @@ public class ProejaPFV extends Activity implements View.OnClickListener {
         if ((nota1cert.getText().toString().length() == 0) || (nota2cert.getText().toString().length() == 0))  {
             Toast.makeText(getApplicationContext(), "Prencha todas as notas!", Toast.LENGTH_SHORT).show();
             resultado.setText("");
-        }
-        else {
+        } else {
             nota1Float = Float.parseFloat(nota1cert.getText().toString());
             nota2Float = Float.parseFloat(nota2cert.getText().toString());
 
@@ -71,16 +65,9 @@ public class ProejaPFV extends Activity implements View.OnClickListener {
                         Float aux = ((nota1Float + nota2Float)) / 2;
                         resultadoFloat = (25 - (aux * 3)) / 2;
 
-                        DecimalFormat forma = new DecimalFormat("0.00"); // Define
-                        // a
-                        // forma
-                        // do
-                        // numero
-                        // decimal.
-                        String formatado = forma.format(resultadoFloat); // Formata para
-                        // uma
-                        // string
-                        //Media final tem que ser maior ou igual a 5?
+                        DecimalFormat forma = new DecimalFormat("0.00");
+                        String formatado = forma.format(resultadoFloat);
+
                         if (aux < 5) {
                             Toast.makeText(getApplicationContext(), "Boa prova.", Toast.LENGTH_SHORT).show();
                             resultado.setText(formatado + " pts.");
@@ -88,7 +75,6 @@ public class ProejaPFV extends Activity implements View.OnClickListener {
                             Toast.makeText(getApplicationContext(), "Você já foi aprovado!", Toast.LENGTH_SHORT).show();
                             resultado.setText("");
                         }
-
                     }
                     break;
                 default:

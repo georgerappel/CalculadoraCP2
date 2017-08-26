@@ -1,8 +1,8 @@
 package com.testemedia.mediacp2;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -20,7 +19,7 @@ import java.text.DecimalFormat;
 /**
  * Editado by George on 12/04/2015.
  */
-public class CalcularMedias extends Activity implements View.OnClickListener {
+public class CalcularMedias extends AppCompatActivity implements View.OnClickListener {
 
     EditText nota1Tri, nota2Tri, nota3Tri, resultado3Tri, resultadoMA, resultadoPFV;
     Button terceiro, ma;

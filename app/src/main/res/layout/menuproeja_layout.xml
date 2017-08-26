@@ -16,60 +16,59 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:text="PROEJA"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25sp" />
+                android:text="Nota mínima 2ª certificação"
+                android:id="@+id/certificacao2"
+                android:background="@drawable/button_round_gray"
+                android:textColor="@color/primary_dark"
+                android:layout_marginTop="30dp" />
+
+            <Button
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Média anual"
+                android:id="@+id/mediaAnual"
+                android:background="@drawable/button_round_gray"
+                android:textColor="@color/primary_dark"/>
+
+            <Button
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nota mínima PFV"
+                android:id="@+id/pvf"
+                android:background="@drawable/button_round_gray"
+                android:textColor="@color/primary_dark"/>
+
+            <Button
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Média final com PFV"
+                android:id="@+id/mediaFinal"
+                android:background="@drawable/button_round_gray"
+                android:textColor="@color/primary_dark"
+                android:layout_below="@+id/mediaAnual" />
+
+            <Button
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Como funciona?"
+                android:visibility="gone"
+                android:id="@+id/sobre"
+                android:background="@drawable/button_round_gray"
+                android:textColor="@color/primary_dark" />
 
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nota mínima 2ª certificação"
-        android:id="@+id/certificacao2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Média anual"
-        android:id="@+id/mediaAnual"
-        android:layout_below="@+id/pvf"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nota mínima PFV"
-        android:id="@+id/pvf"
-        android:layout_below="@+id/certificacao2"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Média final com PFV"
-        android:id="@+id/mediaFinal"
-        android:layout_below="@+id/mediaAnual"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Como funciona?"
-        android:visibility="gone"
-        android:id="@+id/sobre"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -24,21 +24,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"></com.google.android.gms.ads.AdView>
 
-        <TextView
-            android:id="@+id/topo3tri"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:text="Media Anual"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
             android:id="@+id/proejaanual">
 
@@ -97,6 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:background="@drawable/button_round_gray"
+            android:textColor="@color/primary_dark"
             android:text="@string/calcular" />
 
         <LinearLayout
@@ -114,7 +106,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Média Anual:"
+                android:text="Média Anual"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
