@@ -8,5 +8,5 @@
         android:title="Adicionar matéria"
         android:orderInCategory="1"
         calculadoracp2:showAsAction="always"
-        android:icon="@drawable/ic_action"/>
+        android:icon="@drawable/ic_add_white_24dp"/>
 </menu>

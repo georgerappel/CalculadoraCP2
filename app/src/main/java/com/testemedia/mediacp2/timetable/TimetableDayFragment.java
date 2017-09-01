@@ -96,7 +96,7 @@ public class TimetableDayFragment extends Fragment {
         super.onCreateContextMenu(menu, v, menuInfo);
         if (v.getId()==R.id.list_timetable) {
             MenuInflater inflater = getActivity().getMenuInflater();
-            inflater.inflate(R.menu.menu_list, menu);
+            inflater.inflate(R.menu.timetable_longpress, menu);
         }
     }
 
