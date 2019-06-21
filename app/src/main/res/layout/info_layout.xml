@@ -37,7 +37,7 @@
                 android:id="@+id/faceGeorge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="0dp"
                 android:contentDescription="@string/facer"
                 android:src="@drawable/facegeorge" />
 
@@ -45,7 +45,7 @@
                 android:id="@+id/faceLucas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="0dp"
                 android:contentDescription="@string/faceb"
                 android:src="@drawable/facelucas" />
 
@@ -62,7 +62,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:autoLink="email"
                 android:text="@string/email"
                 android:textAppearance="?android:attr/textAppearanceLarge" />

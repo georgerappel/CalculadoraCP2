@@ -22,7 +22,8 @@
     <string name="desenvolvedores">Desenvolvedores</string>
     <string name="contato">Contato, Sugestões e Erros:</string>
     <string name="email">contato.rbapps@gmail.com</string>
-    <string name="texto">O aplicativo foi desenvolvido por dois ex-alunos do Colégio Pedro II, que cursaram técnico em
+    <string name="texto">Este aplicativo é mantido com a ajuda de diversos alunos! Envie comentários, erros e agradecimentos pelo email acima para que possamos resolvê-los,
+        ou ainda se você estiver aprendendo programação Android e quiser saber mais. O aplicativo foi desenvolvido por dois ex-alunos do Colégio Pedro II, que cursaram técnico em
         informática no CEFET/RJ, tendo como objetivo auxiliar os alunos nos cálculos de médias, notas e na organização de tarefas.</string>
     <string name="contato1">Contato, erros ou sugestões:</string>
     <string name="textoResultado"></string>
