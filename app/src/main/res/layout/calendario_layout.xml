@@ -8,7 +8,7 @@
         android:id="@+id/calendario"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/anosfinais"
+        android:src="@drawable/calendario"
         android:visibility="gone"/>
 
     <LinearLayout
@@ -50,7 +50,7 @@
             android:layout_marginTop="22dp"
             android:layout_width="290dp"
             android:layout_height="60dp"
-            android:text="Atualizado em 06/Abril/2017"
+            android:text="Atualizado em 21/Junho/2019"
             android:textColor="#FF0000"
             android:layout_gravity="center"
             android:gravity="center"/>

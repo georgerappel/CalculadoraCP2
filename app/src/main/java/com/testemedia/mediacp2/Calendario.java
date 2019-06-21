@@ -13,7 +13,7 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
     static final String STATE_CALENDARIO_RESOURCE = "calendarioResource", STATE_CALENDARIO_VISIVEL = "calendarioVisivel";
     int idCalendario = 0;
 
-    Button calendarioMedio, calendarioProeja;
+//    Button calendarioMedio, calendarioProeja;
     LinearLayout layoutBotoes;
 	ScaleImageView calendario;
 

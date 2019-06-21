@@ -8,7 +8,7 @@
         android:id="@+id/calendario"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/anosfinais"
+        android:src="@drawable/calendario"
         android:visibility="gone"/>
 
     <LinearLayout
