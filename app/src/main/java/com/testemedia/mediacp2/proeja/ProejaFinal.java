@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
@@ -47,10 +46,7 @@ public class ProejaFinal extends AppCompatActivity implements View.OnClickListen
         resultado = (EditText)findViewById(R.id.resultado);
         calcular = (Button)findViewById(R.id.calcular);
 
-
         calcular.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -59,7 +55,6 @@ public class ProejaFinal extends AppCompatActivity implements View.OnClickListen
             interstitial.show();
         }
         super.onStop();
-        EasyTracker.getInstance(this).activityStop(this);
     }
 
     @Override
@@ -99,13 +94,11 @@ public class ProejaFinal extends AppCompatActivity implements View.OnClickListen
                         // uma
                         // string
                         resultado.setText(formatado + " pts.");
-
                     }
                     break;
                 default:
                     break;
             }
         }
-
     }
 }

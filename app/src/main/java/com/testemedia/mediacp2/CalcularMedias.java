@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -61,9 +59,6 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
-        //Define o tracker desse click e coloca na categoria Bot?es>Clique>Calculo MA
-        EasyTracker tracker = EasyTracker.getInstance(CalcularMedias.this);
-
         float nota1, nota2, nota3, result;
         DecimalFormat forma = new DecimalFormat("0.00");
         String formatado;
@@ -78,7 +73,7 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
                         clickCount--;
                     }
                 }
-                tracker.send(MapBuilder.createEvent("Botoes", "Clique", "Terceiro", null).build());
+
                 if ((nota1Tri.getText().toString().length() == 0)
                         || (nota2Tri.getText().toString().length() == 0)) {
                     limparNotas("Preencha todas as notas.");
@@ -118,7 +113,7 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
                         clickCount--;
                     }
                 }
-                tracker.send(MapBuilder.createEvent("Botoes", "Clique", "Calculo M.A.", null).build());
+
                 if ((nota1Tri.getText().toString().length() == 0)
                         || (nota2Tri.getText().toString().length() == 0)
                         || (nota3Tri.getText().toString().length() == 0)) {
@@ -158,19 +153,6 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
             default:
                 break;
         }
-    }
-
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EasyTracker.getInstance(this).activityStop(this);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        EasyTracker.getInstance(this).activityStart(this);
     }
 
     void limparNotas(String mensagem) {

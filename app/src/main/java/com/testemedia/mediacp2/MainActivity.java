@@ -11,8 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
 import com.testemedia.mediacp2.timetable.TimeTableActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,14 +18,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	Button  botaoMA, botaoBoletim,
 		 botaoTimetable, botaoProeja, botaoCalendario, botaoSobre;
     private ShareActionProvider mShareActionProvider;
-    EasyTracker tracker;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-        tracker = EasyTracker.getInstance(MainActivity.this);
 
         botaoMA = (Button) findViewById(R.id.botaoMA);
 		botaoBoletim = (Button) findViewById(R.id.botaoBoletim);
@@ -71,23 +66,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
-        EasyTracker tracker = EasyTracker.getInstance(MainActivity.this);
         switch (item.getItemId()) {
             case R.id.share:
-                tracker.send(MapBuilder.createEvent("Menubar", "Compartilhar",
-                        "Compartilhar", null).build());
                 onShareAction();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
-	@Override
-	public void onStart() {
-		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this);
-	}
 
 	@Override
 	public void onClick(View v) {
@@ -104,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			break;
 		case R.id.botaoBoletim:
             Intent acao = new Intent(this, com.testemedia.mediacp2.boletim.Boletim.class);
-            tracker.send(MapBuilder.createEvent("Botoes", "Boletim-Geral", "Visualizar Boletim", null).build());
             this.startActivity(acao);
 			break;
         case R.id.botaoProeja:
@@ -124,11 +109,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 
 	}
-
-	@Override
-	protected void onStop() {
-		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);
-	}
-
 }

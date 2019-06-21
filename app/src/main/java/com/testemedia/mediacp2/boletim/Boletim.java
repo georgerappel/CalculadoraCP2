@@ -23,8 +23,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -200,10 +198,6 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void criarDialog(int numeroMateria, final int trimestre) {
-        EasyTracker tracker = EasyTracker.getInstance(Boletim.this);
-
-        tracker.send(MapBuilder.createEvent("Boletim", "Editar",
-                "Edicao Direta do Boletim", null).build());
         auxTrimestre = trimestre;
         id = numeroMateria;
         float nota = 0;
@@ -312,18 +306,6 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        EasyTracker.getInstance(this).activityStart(this);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EasyTracker.getInstance(this).activityStop(this);
     }
 
     @Override

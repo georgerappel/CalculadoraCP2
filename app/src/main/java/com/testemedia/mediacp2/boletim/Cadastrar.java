@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
 import com.testemedia.mediacp2.R;
 
 public class Cadastrar extends AppCompatActivity implements View.OnClickListener {
@@ -32,12 +30,6 @@ public class Cadastrar extends AppCompatActivity implements View.OnClickListener
         nota3 = (EditText) findViewById(R.id.nota3);
         salve = (Button) findViewById(R.id.salvar);
         salve.setOnClickListener(this);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        EasyTracker.getInstance(this).activityStart(this);
     }
 
     public void onClick(View v) {
@@ -85,9 +77,6 @@ public class Cadastrar extends AppCompatActivity implements View.OnClickListener
                             CharSequence text = "Disciplina Cadastrada!";
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
-                            EasyTracker tracker = EasyTracker.getInstance(Cadastrar.this);
-                            tracker.send(MapBuilder.createEvent("Boletim", "Cadastrar",
-                                    "SalvarMateria", null).build());
                             finalizarAtividade();
                         } else { // Se existir nota 3, salva a nota 3 e usa no
                             // construtor.
@@ -109,9 +98,6 @@ public class Cadastrar extends AppCompatActivity implements View.OnClickListener
                                 CharSequence text = "Disciplina Cadastrada!";
                                 Toast toast = Toast.makeText(context, text, duration);
                                 toast.show();
-                                EasyTracker tracker = EasyTracker.getInstance(Cadastrar.this);
-                                tracker.send(MapBuilder.createEvent("Boletim", "Cadastrar",
-                                        "SalvarMateria", null).build());
                                 finalizarAtividade();
                             }
                         }
@@ -122,12 +108,6 @@ public class Cadastrar extends AppCompatActivity implements View.OnClickListener
                 break;
         }
 
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EasyTracker.getInstance(this).activityStop(this);
     }
 
     @Override

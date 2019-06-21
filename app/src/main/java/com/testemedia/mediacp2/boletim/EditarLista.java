@@ -16,8 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
 import com.testemedia.mediacp2.R;
 
 public class EditarLista extends AppCompatActivity {
@@ -61,7 +59,6 @@ public class EditarLista extends AppCompatActivity {
         SqlCadastro db = new SqlCadastro(this);
         Materias materia = new Materias();
         int menuItemIndex = item.getItemId();
-        EasyTracker tracker = EasyTracker.getInstance(EditarLista.this);
 
         String[] menuItems = {"Editar", "Remover"};
         String menuItemName = menuItems[menuItemIndex];
@@ -82,10 +79,6 @@ public class EditarLista extends AppCompatActivity {
             Toast toast = Toast.makeText(context, ToastText, duration);
             toast.show();
 
-            //Google Analytics
-            tracker.send(MapBuilder.createEvent("Boletim", "ListaDeEdicao",
-                    "MateriaRemovida", null).build());
-
             // Atualiza a atividade ap�s a remo��o.
             onCreate(null);
         } else if (menuItemName == "Editar") {
@@ -94,26 +87,11 @@ public class EditarLista extends AppCompatActivity {
             Intent intent = new Intent(this, EditarMateria.class);
             intent.putExtra("id", id);
 
-            //Google Analytics
-            tracker.send(MapBuilder.createEvent("Boletim", "ListaDeEdicao",
-                    "IrEditarMateria", null).build());
             db.close();
             startActivity(intent);
         }
         return true;
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        EasyTracker.getInstance(this).activityStart(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
 
     @Override
     public void onBackPressed(){

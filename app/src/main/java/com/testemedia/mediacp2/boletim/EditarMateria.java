@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
 import com.testemedia.mediacp2.R;
 
 public class EditarMateria extends AppCompatActivity implements View.OnClickListener {
@@ -62,10 +60,6 @@ public class EditarMateria extends AppCompatActivity implements View.OnClickList
 
 		Context context = getApplicationContext();
 		int duration = Toast.LENGTH_LONG;
-		
-		EasyTracker tracker = EasyTracker.getInstance(EditarMateria.this);
-		tracker.send(MapBuilder.createEvent("Boletim", "Editar",
-				"SalvarEdicaoMateria", null).build());
 
 		switch (v.getId()) {
 		case R.id.salvar:
@@ -113,11 +107,5 @@ public class EditarMateria extends AppCompatActivity implements View.OnClickList
 			break;
 		}
 
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this);
 	}
 }

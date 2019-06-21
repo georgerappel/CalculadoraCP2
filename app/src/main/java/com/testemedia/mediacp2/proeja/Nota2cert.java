@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
@@ -54,7 +53,6 @@ public class Nota2cert extends AppCompatActivity implements View.OnClickListener
             interstitial.show();
         }
         super.onStop();
-        EasyTracker.getInstance(this).activityStop(this);
     }
 
     @Override

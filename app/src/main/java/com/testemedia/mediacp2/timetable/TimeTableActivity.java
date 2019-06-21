@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -75,12 +74,6 @@ public class TimeTableActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         currentItem = mViewPager.getCurrentItem();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EasyTracker.getInstance(this).activityStop(this);
     }
 
     @Override

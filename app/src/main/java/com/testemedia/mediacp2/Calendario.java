@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.google.analytics.tracking.android.EasyTracker;
 import com.matabii.dev.scaleimageview.ScaleImageView;
 
 public class Calendario extends AppCompatActivity implements View.OnClickListener{
@@ -55,12 +54,6 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
     }
-
-	@Override
-	public void onStop() {
-		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);
-	}
 	
 	@Override
 	public void onClick(View v){
@@ -96,18 +89,4 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
 			super.onBackPressed();
 		}
 	}
-	
-	@Override
-	public void onStart() {
-		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this);
-	}
-	
-	@Override
-	public void onPause(){
-		super.onPause();
-	}
-
-	
-	
 }

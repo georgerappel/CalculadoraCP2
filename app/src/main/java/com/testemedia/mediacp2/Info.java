@@ -9,8 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.google.analytics.tracking.android.EasyTracker;
-
 public class Info extends AppCompatActivity implements View.OnClickListener {
 
 	Context context = this;
@@ -25,13 +23,6 @@ public class Info extends AppCompatActivity implements View.OnClickListener {
 
 		faceGeorge.setOnClickListener(this);
 		faceLucas.setOnClickListener(this);
-
-	}
-	
-	@Override
-	public void onStart() {
-		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this);
 	}
 
 	public void onClick(View v) {
@@ -74,11 +65,5 @@ public class Info extends AppCompatActivity implements View.OnClickListener {
 	        uri = Uri.parse(url);
 	    }
 	    return new Intent(Intent.ACTION_VIEW, uri);
-	}
-	
-	@Override
-	public void onStop() {
-		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);
 	}
 }
