@@ -3,6 +3,7 @@ package com.testemedia.mediacp2;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -31,6 +32,11 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.medias_layout);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
         // Criar o anncio intersticial.
         interstitial = new InterstitialAd(this);
@@ -160,5 +166,16 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
         resultadoMA.setText("");
         resultadoPFV.setText("");
         resultado3Tri.setText("");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

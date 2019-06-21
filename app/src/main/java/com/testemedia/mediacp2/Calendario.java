@@ -2,6 +2,7 @@ package com.testemedia.mediacp2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -21,6 +22,11 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calendario_layout);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
 		calendario = (ScaleImageView)findViewById(R.id.calendario);
         layoutBotoes = (LinearLayout)findViewById(R.id.linear_botoes_calendario);
@@ -96,5 +102,16 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
         calendario.setImageResource(resource);
         calendario.setVisibility(View.VISIBLE);
         layoutBotoes.setVisibility(View.GONE);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

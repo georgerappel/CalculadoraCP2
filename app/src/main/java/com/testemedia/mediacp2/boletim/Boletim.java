@@ -48,6 +48,11 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.boletim_layout);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
         // ---- Table columns
         final String _ID = "ID";
@@ -313,6 +318,9 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent acao;
         switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
             case R.id.edit_materia_opt:
                 acao = new Intent(this, EditarLista.class);
                 this.startActivity(acao);

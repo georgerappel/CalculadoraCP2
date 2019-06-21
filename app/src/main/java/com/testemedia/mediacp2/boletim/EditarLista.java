@@ -28,6 +28,11 @@ public class EditarLista extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editarlista_layout);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
         lista = (ListView) findViewById(R.id.lista);
 
@@ -110,5 +115,16 @@ public class EditarLista extends AppCompatActivity {
                 R.layout.itemlista, materias);
         lista.setAdapter(adapter);
         registerForContextMenu(lista);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

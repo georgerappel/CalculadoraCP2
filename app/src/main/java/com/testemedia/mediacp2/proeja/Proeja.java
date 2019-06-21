@@ -3,6 +3,7 @@ package com.testemedia.mediacp2.proeja;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +20,11 @@ public class Proeja extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menuproeja_layout);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
         botaoCertificacao2 = (Button) findViewById(R.id.certificacao2);
         botaoPVF = (Button) findViewById(R.id.pvf);
@@ -64,8 +70,14 @@ public class Proeja extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-
-
-
-
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -17,6 +18,11 @@ public class Info extends AppCompatActivity implements View.OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.info_layout);
+		try {
+			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		} catch (NullPointerException e){
+			e.printStackTrace();
+		}
 
 		ImageButton faceGeorge = (ImageButton) findViewById(R.id.faceGeorge);
 		ImageButton faceLucas = (ImageButton) findViewById(R.id.faceLucas);
@@ -65,5 +71,16 @@ public class Info extends AppCompatActivity implements View.OnClickListener {
 	        uri = Uri.parse(url);
 	    }
 	    return new Intent(Intent.ACTION_VIEW, uri);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+			case android.R.id.home:
+				onBackPressed();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 }

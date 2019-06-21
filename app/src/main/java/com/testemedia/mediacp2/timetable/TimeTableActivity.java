@@ -45,6 +45,11 @@ public class TimeTableActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.timetable_layout);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the app.
@@ -103,6 +108,9 @@ public class TimeTableActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
             case R.id.addmateria:
                 Intent addTimetableIntent = new Intent(this, AddTimetable.class);
                 addTimetableIntent.putExtra("dia", mViewPager.getCurrentItem());

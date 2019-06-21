@@ -3,6 +3,7 @@ package com.testemedia.mediacp2.proeja;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -22,10 +23,14 @@ public class ProejaAnual extends AppCompatActivity implements View.OnClickListen
     EditText nota1cert, nota2cert, resultado;
     Button calcular;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.proejaanual_layout);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
 
         AdView adView = (AdView) this.findViewById(R.id.adView2);
@@ -40,7 +45,6 @@ public class ProejaAnual extends AppCompatActivity implements View.OnClickListen
 
 
         calcular.setOnClickListener(this);
-
     }
 
     @Override
@@ -93,7 +97,16 @@ public class ProejaAnual extends AppCompatActivity implements View.OnClickListen
                 break;
             }
         }
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
