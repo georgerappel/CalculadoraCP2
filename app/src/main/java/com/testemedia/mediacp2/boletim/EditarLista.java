@@ -22,21 +22,19 @@ public class EditarLista extends AppCompatActivity {
 
     ListView lista;
     private String[] materias;
+    private SqlCadastro db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editarlista_layout);
 
-        materias = new String[50];
-        SqlCadastro db = new SqlCadastro(this);
-        materias = db.listarMaterias();
-
         lista = (ListView) findViewById(R.id.lista);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.itemlista, materias);
-        lista.setAdapter(adapter);
-        registerForContextMenu(lista);
+
+        db = new SqlCadastro(this);
+        materias = new String[50];
+
+        listarMaterias();
     }
 
     @Override
@@ -56,7 +54,6 @@ public class EditarLista extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item
                 .getMenuInfo();
-        SqlCadastro db = new SqlCadastro(this);
         Materias materia = new Materias();
         int menuItemIndex = item.getItemId();
 
@@ -68,10 +65,12 @@ public class EditarLista extends AppCompatActivity {
                 menuItemName, listItemName));
         materia.setNome(listItemName);
 
-        if (menuItemName == "Remover") {
+        if(listItemName.trim().isEmpty()){
+            return true;
+        } else if (menuItemName == "Remover") {
             db.deleteMateria(materia);
             db.close();
-            // Toast de remo��o
+            // Toast de remoção
             Context context = getApplicationContext();
             CharSequence ToastText = "Matéria " + listItemName
                     + " removida com sucesso.";
@@ -80,7 +79,11 @@ public class EditarLista extends AppCompatActivity {
             toast.show();
 
             // Atualiza a atividade ap�s a remo��o.
-            onCreate(null);
+//            finish();
+//            Intent intent = new Intent(this, EditarLista.class);
+//            startActivity(intent);
+//            onCreate(null);
+            listarMaterias();
         } else if (menuItemName == "Editar") {
             int id = db.buscarIdPorNome(materia.getNome());
             Log.i("ID Enviado:", "" + id);
@@ -101,4 +104,11 @@ public class EditarLista extends AppCompatActivity {
         finish();
     }
 
+    private void listarMaterias(){
+        materias = db.listarMaterias();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.itemlista, materias);
+        lista.setAdapter(adapter);
+        registerForContextMenu(lista);
+    }
 }
