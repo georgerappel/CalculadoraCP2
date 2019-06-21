@@ -98,7 +98,7 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
                     tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_NOTA3)), 3, id_materia));
                     tr.addView(criar_tv_media_anual(cursor.getString(cursor.getColumnIndex(KEY_MA))));
                     tr.addView(criar_tv_cinza(cursor.getString(cursor.getColumnIndex(KEY_PREPFV))));
-                    tr.addView(criar_tv_colorido(cursor.getString(cursor.getColumnIndex(KEY_PFV)), 4, id_materia));
+                    tr.addView(criar_tv_pfv(cursor.getString(cursor.getColumnIndex(KEY_PFV)), 4, id_materia, cursor.getString(cursor.getColumnIndex(KEY_PREPFV))));
 
                     tl.addView(tr);
                 }
@@ -158,10 +158,34 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
 
         if (Float.parseFloat(text) == 0)
             tv.setTextColor(Color.BLACK);
-        else if (Float.parseFloat(text) < 5)
+        else if (Float.parseFloat(text) < Materias.MEDIA_PFV)
             tv.setTextColor(Color.RED);
-        else if (Float.parseFloat(text) < 7)
-            tv.setTextColor(Color.GREEN);
+        else
+            tv.setTextColor(Color.BLUE);
+
+        tv.setGravity(Gravity.CENTER);
+        tv.setTextSize(TAM_LETRA);
+        tv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                criarDialog(diminuir_id(v.getId()), determinar_trimestre_pelo_id(v.getId()));
+            }
+        });
+        return tv;
+    }
+
+    // ---- TextView Colorido - texto colorido para 1, 2 e 3 trimestres e PFV.
+    public TextView criar_tv_pfv(String text, int trimestre, int id_materia, String estimativa_pfv) {
+        TextView tv = new TextView(this);
+
+        // ---- Ver funcaoo para explicacao.
+        tv.setId(aumentar_id(id_materia, trimestre));
+        tv.setText(formatar(text));
+
+        if (Float.parseFloat(text) == 0)
+            tv.setTextColor(Color.BLACK);
+        else if (Float.parseFloat(text) <= Float.parseFloat(estimativa_pfv))
+            tv.setTextColor(Color.RED);
         else
             tv.setTextColor(Color.BLUE);
 

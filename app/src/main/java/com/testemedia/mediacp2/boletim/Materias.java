@@ -2,6 +2,8 @@ package com.testemedia.mediacp2.boletim;
 
 public class Materias {
 
+	public static int MEDIA_PFV = 6;
+
 	private String nome;
 	private int id;
 	private float nota1, nota2, PreNota3, nota3, PrePFV, PFV, MA;
@@ -35,7 +37,7 @@ public class Materias {
 			this.PrePFV = 0;
 		} else {
 			this.MA = MA(nota1, nota2, nota3);
-			if (this.MA < 7)
+			if (this.MA < Materias.MEDIA_PFV)
 				this.PrePFV = PrePFV(nota1, nota2, nota3);
 			else
 				this.PrePFV = 0;
@@ -55,7 +57,7 @@ public class Materias {
 			this.PrePFV = 0;
 		} else {
 			this.MA = MA(nota1, nota2, nota3);
-			if (this.MA < 7)
+			if (this.MA < Materias.MEDIA_PFV)
 				this.PrePFV = PrePFV(nota1, nota2, nota3);
 			else
 				this.PrePFV = 0;
@@ -76,7 +78,7 @@ public class Materias {
 			this.PrePFV = 0;
 		} else {
 			this.MA = MA(nota1, nota2, nota3);
-			if (this.MA < 7)
+			if (this.MA < Materias.MEDIA_PFV)
 				this.PrePFV = PrePFV(nota1, nota2, nota3);
 			else
 				this.PrePFV = 0;
@@ -88,7 +90,7 @@ public class Materias {
 	}
 
 	public float Pre3Tri(float nota1, float nota2) {
-		return ((70 - ((nota1 * 3) + (nota2 * 3))) / 4);
+		return ((60 - ((nota1 * 3) + (nota2 * 3))) / 4);
 	}
 
 	public float PrePFV(float nota1, float nota2, float nota3) {
@@ -139,7 +141,7 @@ public class Materias {
 	public void setNota1(float nota1) {
 		this.nota1 = nota1;
 		this.MA = MA(nota1, nota2, nota3);
-		if (this.MA < 7)
+		if (this.MA < Materias.MEDIA_PFV)
 			this.PrePFV = PrePFV(nota1, nota2, nota3);
 		else
 			this.PrePFV = 0;
@@ -148,7 +150,7 @@ public class Materias {
 	public void setNota2(float nota2) {
 		this.nota2 = nota2;
 		this.MA = MA(nota1, nota2, nota3);
-		if (this.MA < 7)
+		if (this.MA < Materias.MEDIA_PFV)
 			this.PrePFV = PrePFV(nota1, nota2, nota3);
 		else
 			this.PrePFV = 0;
@@ -161,7 +163,7 @@ public class Materias {
 			this.PrePFV = 0;
 		} else {
 			this.MA = MA(nota1, nota2, nota3);
-			if (this.MA < 7)
+			if (this.MA < Materias.MEDIA_PFV)
 				this.PrePFV = PrePFV(nota1, nota2, nota3);
 		}
 	}
