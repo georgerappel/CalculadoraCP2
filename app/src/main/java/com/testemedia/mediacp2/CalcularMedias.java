@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.testemedia.mediacp2.boletim.Materias;
 
 import java.text.DecimalFormat;
 
@@ -93,8 +94,7 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
                         limparNotas("Ops. Nota invalida.");
 
                     } else {
-
-                        result = ((70 - ((nota1 * 3) + (nota2 * 3))) / 4);
+                        result = ((60 - ((nota1 * 3) + (nota2 * 3))) / 4);
 
                         if (result > 10)
                             textoResultado.setText("Voce esta na PFV.");
@@ -144,11 +144,11 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
                         formatado = forma.format(result);
                         resultadoMA.setText(formatado + " pts.");
 
-                        if (result >= 7) {
+                        if (result >= Materias.MEDIA_PFV) {
                             textoResultado.setText("Aprovado. Parabens!");
                             resultadoPFV.setText("");
                         } else {
-                            textoResultado.setText("PFV. Boa sorte.");
+                            textoResultado.setText("PFV. Boa sorte!");
                             result = (25 - (result * 3)) / 2;
                             formatado = forma.format(result);
                             resultadoPFV.setText(formatado + " pts.");
