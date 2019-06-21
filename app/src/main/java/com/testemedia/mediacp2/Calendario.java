@@ -25,14 +25,19 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
 		calendario = (ScaleImageView)findViewById(R.id.calendario);
         layoutBotoes = (LinearLayout)findViewById(R.id.linear_botoes_calendario);
 
-        calendarioMedio = (Button)findViewById(R.id.calendario_medio);
-        calendarioMedio.setOnClickListener(this);
+        // Mostra direto porque só tem um calendário
+        mostraCalendario(R.drawable.calendario);
+
+        //CÓDIGO ABAIXO COMENTÁDO ENQUANTO HOUVER APENAS UM CALENDÁRIO ÚNICO
+//        calendarioMedio = (Button)findViewById(R.id.calendario_medio);
+//        calendarioMedio.setOnClickListener(this);
+//
 //        calendarioPedrinho = (Button)findViewById(R.id.calendario_pedrinho);
 //        calendarioPedrinho.setOnClickListener(this);
-        calendarioProeja = (Button)findViewById(R.id.calendario_proeja);
-        calendarioProeja.setOnClickListener(this);
+//        calendarioProeja = (Button)findViewById(R.id.calendario_proeja);
+//        calendarioProeja.setOnClickListener(this);
 
-        if ( savedInstanceState != null) {
+        if (savedInstanceState != null) {
             int calendarioResourceId = savedInstanceState.getInt(STATE_CALENDARIO_RESOURCE);
             int calendarioVisivel = savedInstanceState.getInt(STATE_CALENDARIO_VISIVEL);
             if (calendarioResourceId != 0 && calendarioVisivel != 0) {
@@ -43,6 +48,9 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
                     calendario.setVisibility(View.VISIBLE);
                 }
             }
+        } else {
+            // Mostra direto porque só tem um calendário
+            mostraCalendario(R.drawable.calendario);
         }
 	}
 
@@ -59,34 +67,34 @@ public class Calendario extends AppCompatActivity implements View.OnClickListene
 	public void onClick(View v){
 		switch(v.getId()){
 //		case R.id.calendario_pedrinho:
-//            idCalendario = R.drawable.pedrinho;
-//			calendario.setImageResource(R.drawable.pedrinho);
-//			calendario.setVisibility(View.VISIBLE);
-//            layoutBotoes.setVisibility(View.GONE);
+//            mostraCalendario(R.drawable.pedrinho);
 //			break;
-		case R.id.calendario_medio:
-            idCalendario = R.drawable.anosfinais;
-			calendario.setImageResource(R.drawable.anosfinais);
-			calendario.setVisibility(View.VISIBLE);
-            layoutBotoes.setVisibility(View.GONE);
-			break;
-		case R.id.calendario_proeja:
-            idCalendario = R.drawable.proeja;
-            calendario.setImageResource(R.drawable.proeja);
-            calendario.setVisibility(View.VISIBLE);
-            layoutBotoes.setVisibility(View.GONE);
-            break;
+//		case R.id.calendario_medio:
+//		    mostraCalendario(R.drawable.calendario);
+//			break;
+//		case R.id.calendario_proeja:
+//            mostraCalendario(R.drawable.proeja);
+//            break;
 		}
 	}
-	
-	@Override
-	public void onBackPressed() {
-		if(calendario.getVisibility() == View.VISIBLE){
-            calendario.setVisibility(View.GONE);
-            layoutBotoes.setVisibility(View.VISIBLE);
-            idCalendario = 0;
-		} else if(calendario.getVisibility() == View.GONE){
-			super.onBackPressed();
-		}
-	}
+
+//	CÓDIGO COMENTÁDO EQUANTO HOUVER APENAS UM CALENDÁRIO ÚNICO
+//
+//	@Override
+//	public void onBackPressed() {
+//		if(calendario.getVisibility() == View.VISIBLE){
+//            calendario.setVisibility(View.GONE);
+//            layoutBotoes.setVisibility(View.VISIBLE);
+//            idCalendario = 0;
+//		} else if(calendario.getVisibility() == View.GONE){
+//			super.onBackPressed();
+//		}
+//	}
+
+	public void mostraCalendario(int resource){
+        idCalendario = resource;
+        calendario.setImageResource(resource);
+        calendario.setVisibility(View.VISIBLE);
+        layoutBotoes.setVisibility(View.GONE);
+    }
 }

@@ -5,33 +5,16 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e81e58e0-43e9-461d-a74b-a6ba6431eb5e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/calendario.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalculadoraCP2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CalculadoraCP2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/libs/libGoogleAnalyticsServices.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/CalcularMedias.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/CalcularMedias.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Calendario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Boletim.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Boletim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Cadastrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Cadastrar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/EditarLista.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/EditarLista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/EditarMateria.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/EditarMateria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Instrucoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Instrucoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/proeja/Nota2cert.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/proeja/Nota2cert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/proeja/ProejaFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/proeja/ProejaFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/timetable/TimeTableActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/timetable/TimeTableActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/proeja.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,25 +45,31 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="gitignore" value="1" />
           <entry key="gradle" value="2" />
+          <entry key="java" value="1" />
           <entry key="png" value="2" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="2" />
           <entry key="Image" value="2" />
-          <entry key="XML" value="1" />
+          <entry key="JAVA" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="java" value="337" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="JAVA" value="337" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -91,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
+            <state relative-caret-position="747">
               <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -114,9 +103,26 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-367" />
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/anosfinais.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Calendario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="76" column="20" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/calendario_layout.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -134,18 +140,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
               <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Instrucoes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2226,7 +2220,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/CalcularMedias.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Calendario.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/boletim/Boletim.java" />
@@ -2239,6 +2232,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/proeja/Nota2cert.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Info.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Calendario.java" />
       </list>
     </option>
   </component>
@@ -2346,6 +2340,11 @@
     <property name="device.picker.selection" value="0033286605" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2476,8 +2475,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1052" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -2487,7 +2487,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49786553" weight="0.32934782" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49786553" weight="0.32899022" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -2496,9 +2496,9 @@
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49359658" weight="0.33659065" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5064034" side_tool="true" weight="0.32934782" />
-      <window_info anchor="bottom" id="Logcat" order="10" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32899022" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.5276873" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.4353963" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.29456523" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -2530,13 +2530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2717">
           <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Calendario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -2627,16 +2620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
@@ -2645,8 +2628,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/proeja.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-367" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/anosfinais.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -2655,11 +2646,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/proeja.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/anosfinais.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/calendario_layout.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/testemedia/mediacp2/Calendario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="76" column="20" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
