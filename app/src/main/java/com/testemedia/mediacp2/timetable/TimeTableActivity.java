@@ -69,7 +69,7 @@ public class TimeTableActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        if(currentItem >= 0 && currentItem < 8)
+        if(currentItem >= 0 && currentItem < 7)
             mViewPager.setCurrentItem(currentItem);
         else
             mViewPager.setCurrentItem(0);
@@ -144,7 +144,7 @@ public class TimeTableActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 7 total pages.
-            return 7;
+            return 6;
         }
 
         @Override
@@ -163,8 +163,6 @@ public class TimeTableActivity extends AppCompatActivity {
                     return getString(R.string.sexta).toUpperCase(l);
                 case 5:
                     return getString(R.string.sabado).toUpperCase(l);
-                case 6:
-                    return getString(R.string.sabado2).toUpperCase(l);
 
             }
             return null;

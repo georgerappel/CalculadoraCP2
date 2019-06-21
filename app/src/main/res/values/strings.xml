@@ -6,7 +6,7 @@
     <string name="informacoes">Informações</string>
     <string name="botao3tri">Nota mín. do 3° Trimestre</string>
     <string name="botaoPFV">Nota mínima para PFV</string>
-    <string name="botaoMA">Média Anual</string>
+    <string name="botaoMA">Média Anual</string>s
     <string name="botaoMedias">Calcular Médias</string>
     <string name="tudoOuNada">Ao Pedro II, tudo ou nada?!</string>
     <string name="tri1">Nota do 1° Tri.:</string>
@@ -49,10 +49,8 @@
     <string name="quarta">Quarta</string>
     <string name="quinta">Quinta</string>
     <string name="sexta">Sexta</string>
-    <string name="sabado">Sabado I</string>
-    <string name="sabado2">Sabado II</string>
+    <string name="sabado">Sabado</string>
     <string name="menu_delete">Excluir</string>
     <string name="menu_edit">Editar</string>
 
-	
 </resources>
