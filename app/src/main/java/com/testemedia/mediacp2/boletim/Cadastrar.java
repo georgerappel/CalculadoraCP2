@@ -41,7 +41,7 @@ public class Cadastrar extends AppCompatActivity implements View.OnClickListener
             case R.id.salvar:
 
                 if ((nota1.getText().toString().length() == 0)
-                        || (nome.getText().toString().length() == 0)) {
+                        || (nome.getText().toString().trim().length() == 0)) {
 
                     Context context = getApplicationContext();
                     CharSequence text = "Preencha todos os campos.";
@@ -52,7 +52,11 @@ public class Cadastrar extends AppCompatActivity implements View.OnClickListener
 
                     // Salva o nome e as notas das matérias.
                     nomeMat = nome.getText().toString();
-                    nota1tri = Float.parseFloat(nota1.getText().toString());
+                    try {
+                        nota1tri = Float.parseFloat(nota1.getText().toString());
+                    } catch (Exception e){
+                        nota1tri = 0;
+                    }
 
                     if (nota2.getText().toString().length() == 0)
                         nota2tri = 0;
