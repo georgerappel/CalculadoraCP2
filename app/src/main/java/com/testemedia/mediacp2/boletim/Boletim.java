@@ -23,9 +23,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.testemedia.mediacp2.R;
 
 import java.text.DecimalFormat;
@@ -35,7 +32,6 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
     int auxTrimestre, id, contador = 0;
     Context context;
     Materias materia = new Materias();
-    private InterstitialAd interstitial;
 
     public static String formatar(String text) {
         float nota = Float.parseFloat(text);
@@ -66,21 +62,12 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
         final String KEY_PFV = "PFV";
 
         // ------ Declaração das variaveis locais.
-        final String ID = "ca-app-pub-3567961859053683/7232838256";
-
         SqlCadastro helper = new SqlCadastro(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         context = this;
 
-
-        // Criar o anúncio intersticial.
-        interstitial = new InterstitialAd(this);
-        interstitial.setAdUnitId(ID);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitial.loadAd(adRequest);
-
-        TableLayout tl = (TableLayout) findViewById(R.id.maintable);
+        TableLayout tl = findViewById(R.id.maintable);
         TableRow tr;
 
         String selection = "SELECT * FROM Materias";
@@ -252,16 +239,16 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialogo);
 
-        TextView titulo = (TextView) dialog.findViewById(R.id.titulo);
+        TextView titulo = dialog.findViewById(R.id.titulo);
         titulo.setText(materia.getNome());
 
-        TextView texto1 = (TextView) dialog.findViewById(R.id.texto1);
+        TextView texto1 = dialog.findViewById(R.id.texto1);
         texto1.setText(texto);
 
-        EditText notaedit = (EditText) dialog.findViewById(R.id.notaedit);
+        EditText notaedit = dialog.findViewById(R.id.notaedit);
         notaedit.setText(Float.toString(nota));
 
-        Button salvar = (Button) dialog.findViewById(R.id.salvar);
+        Button salvar = dialog.findViewById(R.id.salvar);
         salvar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,16 +258,22 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
                     CharSequence text = "Preencha o campo.";
                     Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
                     toast.show();
-                } else if (Float.parseFloat(notaedit.getText().toString()) < 0
-                        || Float.parseFloat(notaedit.getText().toString()) > 10) {
-                    // Nota fora do limite
-                    CharSequence text = "Nota invalida.";
-                    Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-                    toast.show();
                 } else {
-                    salvarNota(Float.parseFloat(notaedit.getText().toString()));
-                    dialog.dismiss();
-                    restartActivity();
+                    try {
+                        float nota = Float.parseFloat(notaedit.getText().toString());
+                        if (nota < 0 || nota > 10) {
+                            // Nota fora do limite
+                            CharSequence text = "Nota invalida.";
+                            Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                            toast.show();
+                        } else {
+                            salvarNota(nota);
+                            dialog.dismiss();
+                            restartActivity();
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(context, "Nota inválida", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -337,22 +330,6 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public void onBackPressed(){
-        if (interstitial.isLoaded()) {
-            interstitial.show();
-            interstitial.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    super.onAdClosed();
-                    finish();
-                }
-            });
-        }else{
-            super.onBackPressed();
         }
     }
 

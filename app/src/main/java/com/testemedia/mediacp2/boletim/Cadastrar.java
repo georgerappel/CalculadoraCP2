@@ -50,7 +50,7 @@ public class Cadastrar extends AppCompatActivity implements View.OnClickListener
                         || (nome.getText().toString().trim().length() == 0)) {
 
                     Context context = getApplicationContext();
-                    CharSequence text = "Preencha todos os campos.";
+                    CharSequence text = "Preencha Nome e 1º Trimestre";
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 

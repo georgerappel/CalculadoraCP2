@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.testemedia.mediacp2.R;
 
 import java.text.DecimalFormat;
@@ -33,14 +31,10 @@ public class ProejaPFV extends AppCompatActivity implements View.OnClickListener
             e.printStackTrace();
         }
 
-        AdView adView = (AdView) this.findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-
-        nota1cert = (EditText)findViewById(R.id.pfvcert1);
-        nota2cert = (EditText)findViewById(R.id.pfvcert2);
-        resultado = (EditText)findViewById(R.id.pfvresultado);
-        calcular = (Button)findViewById(R.id.pfvcalcular);
+        nota1cert = findViewById(R.id.pfvcert1);
+        nota2cert = findViewById(R.id.pfvcert2);
+        resultado = findViewById(R.id.pfvresultado);
+        calcular = findViewById(R.id.pfvcalcular);
 
         calcular.setOnClickListener(this);
     }

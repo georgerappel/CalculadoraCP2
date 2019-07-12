@@ -10,9 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.testemedia.mediacp2.R;
 
 import java.text.DecimalFormat;
@@ -23,8 +20,6 @@ import java.text.DecimalFormat;
 public class ProejaFinal extends AppCompatActivity implements View.OnClickListener {
     EditText mediaAnual, notaPFV, resultado;
     Button calcular;
-    private InterstitialAd interstitial;
-    final String ID = "ca-app-pub-3567961859053683/7232838256";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,32 +30,12 @@ public class ProejaFinal extends AppCompatActivity implements View.OnClickListen
             e.printStackTrace();
         }
 
-
-        AdView adView = (AdView) this.findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-
-        // Criar o anúncio intersticial.
-        interstitial = new InterstitialAd(this);
-        interstitial.setAdUnitId(ID);
-        AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitial.loadAd(adRequest2);
-
-
-        mediaAnual = (EditText)findViewById(R.id.anual);
-        notaPFV = (EditText)findViewById(R.id.notapfv);
-        resultado = (EditText)findViewById(R.id.resultado);
-        calcular = (Button)findViewById(R.id.calcular);
+        mediaAnual = findViewById(R.id.anual);
+        notaPFV = findViewById(R.id.notapfv);
+        resultado = findViewById(R.id.resultado);
+        calcular = findViewById(R.id.calcular);
 
         calcular.setOnClickListener(this);
-    }
-
-    @Override
-    public void onStop() {
-        if (interstitial.isLoaded()) {
-            interstitial.show();
-        }
-        super.onStop();
     }
 
     @Override

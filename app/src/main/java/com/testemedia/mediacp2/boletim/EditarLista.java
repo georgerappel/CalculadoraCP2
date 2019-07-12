@@ -83,11 +83,6 @@ public class EditarLista extends AppCompatActivity {
             Toast toast = Toast.makeText(context, ToastText, duration);
             toast.show();
 
-            // Atualiza a atividade ap�s a remo��o.
-//            finish();
-//            Intent intent = new Intent(this, EditarLista.class);
-//            startActivity(intent);
-//            onCreate(null);
             listarMaterias();
         } else if (menuItemName == "Editar") {
             int id = db.buscarIdPorNome(materia.getNome());

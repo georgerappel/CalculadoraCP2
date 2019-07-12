@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.testemedia.mediacp2.R;
 
 import java.text.DecimalFormat;
@@ -32,17 +30,10 @@ public class ProejaAnual extends AppCompatActivity implements View.OnClickListen
             e.printStackTrace();
         }
 
-
-        AdView adView = (AdView) this.findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-
-
-        nota1cert = (EditText)findViewById(R.id.cert1);
-        nota2cert = (EditText)findViewById(R.id.cert2);
-        resultado = (EditText)findViewById(R.id.resultado);
-        calcular = (Button)findViewById(R.id.calcular);
-
+        nota1cert = findViewById(R.id.cert1);
+        nota2cert = findViewById(R.id.cert2);
+        resultado = findViewById(R.id.resultado);
+        calcular = findViewById(R.id.calcular);
 
         calcular.setOnClickListener(this);
     }

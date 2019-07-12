@@ -14,9 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.testemedia.mediacp2.R;
 
 import java.util.Locale;
@@ -38,8 +35,6 @@ public class TimeTableActivity extends AppCompatActivity {
      */
     static int currentItem = 0;
     ViewPager mViewPager;
-    private InterstitialAd interstitial;
-    final String ID = "ca-app-pub-3567961859053683/7232838256";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +52,6 @@ public class TimeTableActivity extends AppCompatActivity {
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
-
-        // Criar o anncio intersticial.
-        interstitial = new InterstitialAd(this);
-        interstitial.setAdUnitId(ID);
-        AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitial.loadAd(adRequest2);
     }
 
     @Override
@@ -79,22 +68,6 @@ public class TimeTableActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         currentItem = mViewPager.getCurrentItem();
-    }
-
-    @Override
-    public void onBackPressed(){
-        if (interstitial.isLoaded()) {
-            interstitial.show();
-            interstitial.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    super.onAdClosed();
-                    finish();
-                }
-            });
-        }else{
-            super.onBackPressed();
-        }
     }
 
     @Override

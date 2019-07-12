@@ -10,9 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.testemedia.mediacp2.R;
 
 import java.text.DecimalFormat;
@@ -24,8 +21,6 @@ public class Nota2cert extends AppCompatActivity implements View.OnClickListener
 
     EditText nota1cert, resultado;
     Button calcular;
-    private InterstitialAd interstitial;
-    final String ID = "ca-app-pub-3567961859053683/7232838256";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,29 +31,10 @@ public class Nota2cert extends AppCompatActivity implements View.OnClickListener
             e.printStackTrace();
         }
 
-        AdView adView = (AdView) this.findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-
-        nota1cert = (EditText)findViewById(R.id.cert1);
-        resultado = (EditText)findViewById(R.id.resultado);
-        calcular = (Button)findViewById(R.id.calcular);
+        nota1cert = findViewById(R.id.cert1);
+        resultado = findViewById(R.id.resultado);
+        calcular = findViewById(R.id.calcular);
         calcular.setOnClickListener(this);
-
-        // Criar o anúncio intersticial.
-        interstitial = new InterstitialAd(this);
-        interstitial.setAdUnitId(ID);
-        AdRequest adRequest2 = new AdRequest.Builder().build();
-        interstitial.loadAd(adRequest2);
-
-    }
-
-    @Override
-    public void onStop() {
-        if (interstitial.isLoaded()) {
-            interstitial.show();
-        }
-        super.onStop();
     }
 
     @Override
@@ -70,7 +46,6 @@ public class Nota2cert extends AppCompatActivity implements View.OnClickListener
         inputManager.hideSoftInputFromWindow(
                 getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
-
 
 
         float nota1Float, resultadoFloat;
@@ -92,17 +67,11 @@ public class Nota2cert extends AppCompatActivity implements View.OnClickListener
                         resultadoFloat = 10 - nota1Float;
                         Toast.makeText(getApplicationContext(), "Boa prova.", Toast.LENGTH_SHORT).show();
 
-                        DecimalFormat forma = new DecimalFormat("0.00"); // Define a
-                        // forma
-                        // do
-                        // numero
-                        // decimal.
-                        String formatado = forma.format(resultadoFloat); // Formata para uma
-                        // string
+                        // Define a forma decimal.
+                        DecimalFormat forma = new DecimalFormat("0.00");
+                        String formatado = forma.format(resultadoFloat);
 
-                        resultado.setText(formatado + " pts."); // Mostra a nota
-                        // estando ou n�o
-                        // aprovado.
+                        resultado.setText(formatado + " pts.");
                     }
                     break;
                 default:

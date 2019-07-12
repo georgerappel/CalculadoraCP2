@@ -35,11 +35,11 @@ public class AddTimetable extends Activity implements View.OnClickListener {
             diaDaSemana = -1;
         }
 
-        materia = (EditText) findViewById(R.id.adcmateria);
-        professor = (EditText)findViewById(R.id.adcprofessor);
-        timePicker = (TimePicker)findViewById(R.id.timePicker);
-        salvar = (Button) findViewById(R.id.savebutton);
-        cancelar = (Button)findViewById(R.id.cancelbutton);
+        materia = findViewById(R.id.adcmateria);
+        professor = findViewById(R.id.adcprofessor);
+        timePicker = findViewById(R.id.timePicker);
+        salvar = findViewById(R.id.savebutton);
+        cancelar = findViewById(R.id.cancelbutton);
         salvar.setOnClickListener(this);
         cancelar.setOnClickListener(this);
     }
