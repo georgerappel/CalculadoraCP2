@@ -3,6 +3,8 @@ package com.testemedia.mediacp2.boletim;
 public class Materias {
 
 	public static int MEDIA_PFV = 6;
+	public static float MEDIA_MIN_COR_VERDE= 5;
+	public static float MEDIA_MIN_COR_AZUL = 7;
 
 	private String nome;
 	private int id;
