@@ -10,7 +10,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0'
-        classpath 'com.google.gms:google-services:3.0.0'
     }
 }
 
@@ -21,5 +20,6 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        google()
     }
 }
