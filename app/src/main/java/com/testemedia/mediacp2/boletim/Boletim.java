@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -149,16 +150,8 @@ public class Boletim extends AppCompatActivity implements View.OnClickListener {
 
         if (Float.parseFloat(text) == 0)
             tv.setTextColor(Color.BLACK);
-        // LÓGICA PRA SOMENTE DUAS CORES - VERMELHA E AZUL
-//        else if (Float.parseFloat(text) < Materias.MEDIA_PFV)
-//            tv.setTextColor(Color.RED);
-//        else
-//            tv.setTextColor(Color.BLUE);
-        // Lógica pra três cores: 0-4.9 verm, 5-6.9 verde, 7+ azul
-        else if (Float.parseFloat(text) < Materias.MEDIA_MIN_COR_VERDE)
+        else if (Float.parseFloat(text) < Materias.MEDIA_PFV)
             tv.setTextColor(Color.RED);
-        else if (Float.parseFloat(text) < Materias.MEDIA_MIN_COR_AZUL)
-            tv.setTextColor(Color.GREEN);
         else
             tv.setTextColor(Color.BLUE);
 
