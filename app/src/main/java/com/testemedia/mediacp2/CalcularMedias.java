@@ -29,7 +29,7 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         } catch (NullPointerException e){
-            e.printStackTrace();
+            //do nothing
         }
 
         nota1Tri = findViewById(R.id.nota1Tri);
