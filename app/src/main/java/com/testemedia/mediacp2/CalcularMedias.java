@@ -50,8 +50,12 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
 
         // Esconde o teclado ao clicar no bot?o caso o teclado ainda esteja aberto.
-        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        try {
+            InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        } catch (Exception e) {
+            //do nothing
+        }
 
         float nota1, nota2, nota3, result;
         DecimalFormat forma = new DecimalFormat("0.00");
@@ -59,8 +63,8 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
 
         switch (v.getId()) {
             case R.id.terceiro:
-                if ((nota1Tri.getText().toString().length() == 0)
-                        || (nota2Tri.getText().toString().length() == 0)) {
+                if ((nota1Tri.getText().toString().isEmpty())
+                        || (nota2Tri.getText().toString().isEmpty())) {
                     limparNotas("Preencha todas as notas.");
                 } else {
 
@@ -89,9 +93,9 @@ public class CalcularMedias extends AppCompatActivity implements View.OnClickLis
                 }
                 break;
             case R.id.ma:
-                if ((nota1Tri.getText().toString().length() == 0)
-                        || (nota2Tri.getText().toString().length() == 0)
-                        || (nota3Tri.getText().toString().length() == 0)) {
+                if ((nota1Tri.getText().toString().isEmpty())
+                        || (nota2Tri.getText().toString().isEmpty())
+                        || (nota3Tri.getText().toString().isEmpty())) {
 
                     limparNotas("Preencha todas as notas.");
 

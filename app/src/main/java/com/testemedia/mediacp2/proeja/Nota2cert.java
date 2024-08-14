@@ -42,10 +42,14 @@ public class Nota2cert extends AppCompatActivity implements View.OnClickListener
 
         // Esconde o teclado ao clicar no bot�o caso o teclado ainda esteja
         // aberto.
-        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(
-                getCurrentFocus().getWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS);
+        try {
+            InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(
+                    getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+        } catch (Exception e) {
+            //do nothing
+        }
 
 
         float nota1Float, resultadoFloat;

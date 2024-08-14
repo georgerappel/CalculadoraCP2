@@ -42,10 +42,14 @@ public class ProejaAnual extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         // Esconde o teclado ao clicar no bot�o caso o teclado ainda esteja
         // aberto.
-        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(
-                getCurrentFocus().getWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS);
+        try {
+            InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(
+                    getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+        } catch (Exception e) {
+            //do nothing
+        }
 
         float nota1Float, nota2Float, resultadoFloat;
 
